@@ -115,7 +115,7 @@ aA[index].style.color = 'red'*/
                         </div>
                     </div>
                     <div class="h5 student-num hidden-lg hidden-xs hidden-sm">
-                        <i class="es-icon es-icon-people"></i>1017人</div>
+                        <i class="es-icon es-icon-people"></i>${course.courseUserCount}人</div>
                     <div class="teacher-name h5 hidden-xs hidden-sm">老师：
                         <span>${course.courseTeacherName}</span>
                         <span></span>
@@ -184,10 +184,10 @@ aA[index].style.color = 'red'*/
                 <section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
                     <div class="nav-btn-tab">
                         <ul class="nav nav-tabs " role="tablist">
-                            <li style="width: 25%;" role="presentation" class="active"><a href="894.html">课程介绍</a>
+                            <li style="width: 25%;" role="presentation" class="active"><a href="/course/${course.id}">课程介绍</a>
                             </li>
-                            <li style="width: 25%;" role="presentation"><a href="894/lesson/hflist/all.html">课程目录
-                                <small class="text-muted">( 36 )</small>
+                            <li style="width: 25%;" role="presentation"><a href="${course.id}/lesson">课程目录
+                                <small class="text-muted">( ${lessonCount} )</small>
                             </a>
                             </li>
                             <li style="width: 25%;" role="presentation"><a href="894/type/notice.html"> 听课须知</a>

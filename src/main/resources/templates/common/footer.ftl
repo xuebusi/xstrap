@@ -42,16 +42,16 @@
                     <h3>新手指南</h3>
                     <ul>
                         <li>
-                            <a href="http://www.chinahadoop.cn/page/28" target="_blank">课程码使用方法</a>
+                            <a href="/page/28" target="_blank">课程码使用方法</a>
                         </li>
                         <li>
-                            <a href="http://www.chinahadoop.cn/page/agreement" target="_self">用户服务使用协议</a>
+                            <a href="/page/agreement" target="_blank">用户服务使用协议</a>
                         </li>
                         <li>
-                            <a href="http://www.chinahadoop.cn/page/questions" target="_self">常见问题</a>
+                            <a href="/page/questions" target="_blank">常见问题</a>
                         </li>
                         <li>
-                            <a href="http://www.chinahadoop.cn/page/aboutus" target="_self">关于我们</a>
+                            <a href="/page/aboutus" target="_blank">关于我们</a>
                         </li>
                     </ul>
                 </div>

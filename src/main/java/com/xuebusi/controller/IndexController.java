@@ -135,4 +135,16 @@ public class IndexController {
         map.put("navigation", navigation);
         return new ModelAndView("/course/list", map);
     }
+
+    /**
+     * 单页跳转
+     * @param map
+     * @return
+     */
+    @GetMapping(value = "/page/{tag}")
+    public ModelAndView page(@PathVariable(value = "tag") String tag, Map<String, Object> map) {
+
+        map.put("tag", tag);
+        return new ModelAndView("/help/page", map);
+    }
 }

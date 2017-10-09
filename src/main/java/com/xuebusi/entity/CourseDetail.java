@@ -14,11 +14,11 @@ public class CourseDetail {
 
     @Id
     private int id;
-    private String courseDesc;
-    private String courseCatalog;
-    private String courseNotice;
-    private int courseId;
-    private Date createTime;
+    private String courseDesc;//课程介绍
+    private String courseCatalog;// 课程目录
+    private String courseNotice;//课程须知
+    private int courseId;//课程id
+    private Date createTime;//创建时间
 
     public int getId() {
         return id;

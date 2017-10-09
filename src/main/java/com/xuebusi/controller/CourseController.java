@@ -2,11 +2,13 @@ package com.xuebusi.controller;
 
 import com.xuebusi.entity.Course;
 import com.xuebusi.entity.CourseDetail;
+import com.xuebusi.entity.Lesson;
 import com.xuebusi.entity.Teacher;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
 import com.xuebusi.service.CourseDetailService;
 import com.xuebusi.service.CourseService;
+import com.xuebusi.service.LessonService;
 import com.xuebusi.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +42,9 @@ public class CourseController {
     @Autowired
     private TeacherService teacherService;
 
+    @Autowired
+    private LessonService lessonService;
+
     /**
      * 查询课程详情
      * @param id
@@ -59,12 +64,63 @@ public class CourseController {
             courseDetail = courseDetailService.findOne(course.getId());
             teacher = teacherService.findOne(course.getCourseTeacherId());
         }
+        List<Lesson> lessonList = lessonService.findByCourseId(id);
         map.put("course", course);
         map.put("courseDetail", courseDetail);
         map.put("teacher", teacher);
+        map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
         return new ModelAndView("/course/detail", map);
+    }
+
+    /**
+     * 查询课程目录
+     * @param id
+     * @param map
+     * @return
+     */
+    @GetMapping("/{courseId}/lesson")
+    public ModelAndView lesson(@PathVariable("courseId") Integer id, Map<String, Object> map) {
+        Course course = courseService.findOne(id);
+        Teacher teacher = null;
+        String courseNavigationStr = "";
+        String courseCategoryStr = "";
+        if (course != null) {
+            courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
+            courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
+            teacher = teacherService.findOne(course.getCourseTeacherId());
+        }
+        CourseDetail courseDetail = courseDetailService.findOne(id);
+        List<Lesson> lessonList = lessonService.findByCourseId(id);
+        map.put("course", course);
+        map.put("courseDetail", courseDetail);
+        map.put("teacher", teacher);
+        map.put("lessonList", lessonList);
+        map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
+        map.put("courseNavigationStr", courseNavigationStr);
+        map.put("courseCategoryStr", courseCategoryStr);
+        return new ModelAndView("/course/lesson", map);
+    }
+
+    /**
+     * 播放页
+     * @param id        课程id
+     * @param lessonId  课时id
+     * @param map
+     * @return
+     */
+    @GetMapping(value = "/{courseId}/play/{lessonId}")
+    public ModelAndView play(
+                            @PathVariable("courseId") Integer id,
+                            @PathVariable("lessonId") Integer lessonId,
+                            Map<String, Object> map) {
+
+        Course course = courseService.findOne(id);
+        Lesson lesson = lessonService.findOne(lessonId);
+        map.put("course", course);
+        map.put("lesson", lesson);
+        return new ModelAndView("/course/kuplay", map);
     }
 
     /**

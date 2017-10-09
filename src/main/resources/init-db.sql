@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2017-10-08 22:47:30
+Date: 2017-10-09 22:35:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -855,6 +855,37 @@ INSERT INTO `tb_course_detail` VALUES ('397', '测试课程描述', '测试课�
 INSERT INTO `tb_course_detail` VALUES ('398', '测试课程描述', '测试课程目录', '测试课程须知', '398', '2017-10-08 21:13:39');
 INSERT INTO `tb_course_detail` VALUES ('399', '测试课程描述', '测试课程目录', '测试课程须知', '399', '2017-10-08 21:13:39');
 INSERT INTO `tb_course_detail` VALUES ('400', '测试课程描述', '测试课程目录', '测试课程须知', '400', '2017-10-08 21:13:39');
+
+-- ----------------------------
+-- Table structure for tb_lesson
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_lesson`;
+CREATE TABLE `tb_lesson` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lesson_parent_id` int(11) NOT NULL COMMENT '课时所属父级id',
+  `lesson_name` varchar(255) DEFAULT NULL COMMENT '课时名称',
+  `lesson_type` int(11) DEFAULT NULL COMMENT '课时类别:视频，图文',
+  `create_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `lesson_sort` int(11) DEFAULT NULL COMMENT '课时排序',
+  `course_id` int(11) NOT NULL COMMENT '课程id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tb_lesson
+-- ----------------------------
+INSERT INTO `tb_lesson` VALUES ('1', '4', '本课程PPT+代码打包下载方式', '1', '2017-10-09 21:14:02', '1', '8');
+INSERT INTO `tb_lesson` VALUES ('2', '4', '同城微信学习群，欢迎加入', '1', '2017-10-09 21:14:03', '2', '8');
+INSERT INTO `tb_lesson` VALUES ('3', '4', '1024G联盟成员专属资料', '1', '2017-10-09 21:14:05', '3', '8');
+INSERT INTO `tb_lesson` VALUES ('4', '0', '课前必读', '0', '2017-10-09 21:14:07', '1', '8');
+INSERT INTO `tb_lesson` VALUES ('5', '0', '程序设计基础', '0', '2017-10-09 21:16:35', '3', '8');
+INSERT INTO `tb_lesson` VALUES ('6', '5', '计算机与程序设计', '1', '2017-10-09 21:17:28', '1', '8');
+INSERT INTO `tb_lesson` VALUES ('7', '5', 'Python语言概述', '1', '2017-10-09 21:18:04', '2', '8');
+INSERT INTO `tb_lesson` VALUES ('8', '4', '本课程PPT+代码打包下载方式', '1', '2017-10-09 21:14:02', '1', '400');
+INSERT INTO `tb_lesson` VALUES ('9', '4', '同城微信学习群，欢迎加入', '1', '2017-10-09 21:14:03', '2', '400');
+INSERT INTO `tb_lesson` VALUES ('10', '4', '1024G联盟成员专属资料', '1', '2017-10-09 21:14:05', '3', '400');
+INSERT INTO `tb_lesson` VALUES ('11', '5', '计算机与程序设计', '1', '2017-10-09 21:17:28', '1', '400');
+INSERT INTO `tb_lesson` VALUES ('12', '5', 'Python语言概述', '1', '2017-10-09 21:18:04', '2', '400');
 
 -- ----------------------------
 -- Table structure for tb_teacher
