@@ -98,7 +98,7 @@
             <ul class="nav user-nav">
                 <li class="user-avatar-li nav-hover visible-xs">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <img class="avatar-xs" src="images/avatar.png">
+                        <img class="avatar-xs" src="/images/avatar.png">
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="user-nav-li-login">

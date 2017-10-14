@@ -36,6 +36,13 @@ public class UserController {
         return new ModelAndView("/user/reset", map);
     }
 
+    @GetMapping(value = "/setting")
+    public ModelAndView setting(Map<String, Object> map) {
+
+
+        return new ModelAndView("/user/setting", map);
+    }
+
     @PostMapping(value = "/register/captcha/check")
     public String check() {
 
@@ -51,4 +58,16 @@ public class UserController {
 
         return "";
     }
+
+    /**
+     * 登录
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/login_check")
+    public ModelAndView loginCheck(Map<String, Object> map) {
+
+        return new ModelAndView("/setting", map);
+    }
+
 }
