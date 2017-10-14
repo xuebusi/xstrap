@@ -29,10 +29,10 @@
                 </a>
             </li>
             <li>
-                <a href="http://www.chinahadoop.cn/page/62" target="_blank">常<br>见<br>问<br>题</a>
+                <a href="http://www.xuebusi.cn/page/62" target="_blank">常<br>见<br>问<br>题</a>
             </li>
             <li data-toggle="tooltip" data-placement="left" title="" data-original-title="手机端">
-                <a href="http://www.chinahadoop.cn/mobile/" target="_blank">
+                <a href="http://www.xuebusi.cn/mobile/" target="_blank">
                     <i class="es-icon es-icon-phone1"></i>
                 </a>
             </li>

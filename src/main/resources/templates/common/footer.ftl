@@ -2,42 +2,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 footer-main clearfix">
-                <div class="link-item ">
-                    <h3>我是学生</h3>
-                    <ul>
-                        <li>
-                            <a href="http://wenda.chinahadoop.cn/" target="_blank">如何提问</a>
-                        </li>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/page/lpenter" target="_blank">学习路线</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="link-item ">
-                    <h3>我是老师</h3>
-                    <ul>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/page/releaseclass" target="_blank">如何发布课程</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="link-item ">
-                    <h3>账户管理</h3>
-                    <ul>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/settings/email" target="_blank">修改邮箱</a>
-                        </li>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/password/reset" target="_blank">找回密码</a>
-                        </li>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/settings/avatar" target="_blank">设置头像</a>
-                        </li>
-                        <li>
-                            <a href="http://www.chinahadoop.cn/settings/approval/submit" target="_self">实名认证</a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="link-item hidden-xs">
                     <h3>新手指南</h3>
                     <ul>
@@ -55,24 +19,61 @@
                         </li>
                     </ul>
                 </div>
+                <#--<div class="link-item ">
+                    <h3>我是学生</h3>
+                    <ul>
+                        <li>
+                            <a href="http://wenda.xuebusi.cn/" target="_blank">如何提问</a>
+                        </li>
+                        <li>
+                            <a href="http://www.xuebusi.cn/page/lpenter" target="_blank">学习路线</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-item ">
+                    <h3>我是老师</h3>
+                    <ul>
+                        <li>
+                            <a href="http://www.xuebusi.cn/page/releaseclass" target="_blank">如何发布课程</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-item ">
+                    <h3>账户管理</h3>
+                    <ul>
+                        <li>
+                            <a href="http://www.xuebusi.cn/settings/email" target="_blank">修改邮箱</a>
+                        </li>
+                        <li>
+                            <a href="http://www.xuebusi.cn/password/reset" target="_blank">找回密码</a>
+                        </li>
+                        <li>
+                            <a href="http://www.xuebusi.cn/settings/avatar" target="_blank">设置头像</a>
+                        </li>
+                        <li>
+                            <a href="http://www.xuebusi.cn/settings/approval/submit" target="_self">实名认证</a>
+                        </li>
+                    </ul>
+                </div>-->
+
                 <div class="link-item hidden-xs">
                     <h3>友情链接</h3>
                     <ul>
                         <li>
-                            <a href="http://wenda.chinahadoop.cn/" target="_blank">小象问答</a>
+                            <a href="http://www.xuebusi.com/" target="_blank">问答</a>
                         </li>
                         <li>
-                            <a href="http://dongxicheng.org/" target="_blank">董的博客</a>
+                            <a href="http://www.xuebusi.com/" target="_blank">博客</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 footer-logo hidden-sm hidden-xs">
-                <a class="" href="http://www.chinahadoop.cn/" target="_blank">
+                <a class="" href="http://www.xuebusi.com/" target="_blank">
                     <img src="/images/block_picture_1472461810.png" alt="建议图片大小为233*64">
                 </a>
                 <div class="footer-sns">
-                    <a href="http://weibo.com/chinahadoop" target="_blank">
+                    <a href="http://weibo.com/xuebusi" target="_blank">
                         <i class="es-icon es-icon-weibo"></i>
                     </a>
                     <a class="qrcode-popover top">
@@ -102,12 +103,12 @@
     <div class="copyright" style="background: #2e2e2e;border-top: 1px solid #2e2e2e;padding: 0;margin-top: -30px;padding-bottom: 20px;">
         <div class="container">
             <div class="mts">课程内容版权均归
-                <a href="http://www.chinahadoop.cn/">
-                北京小象科技有限公司
+                <a href="http://www.xuebusi.com/">
+                北京学布斯科技有限公司
                 </a>
                 所有
                 <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank">
-                    京ICP备14002699号
+                    京ICP备*******号
                 </a>
 
             </div>
@@ -116,13 +117,13 @@
 </footer>
 <div class="footer-tool-bar">
     <div class="active">
-        <a href="http://www.chinahadoop.cn/">
+        <a href="http://www.xuebusi.com/">
             <i class="es-icon es-icon-home1"></i>
             <br>首页
         </a>
     </div>
     <div class="">
-        <a href="http://www.chinahadoop.cn/my/courses/learning">
+        <a href="http://www.xuebusi.com/my/courses/learning">
             <i class="es-icon es-icon-write"></i>
             <br>个人中心
         </a>

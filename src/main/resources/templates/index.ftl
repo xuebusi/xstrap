@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)http://www.chinahadoop.cn/ -->
+<!-- saved from url=(0026)http://www.xuebusi.cn/ -->
 <html lang="zh_CN">
 <!--<![endif]-->
 <#include "common/head.ftl">
@@ -83,13 +83,13 @@
         <nav class="text-center">
             <nav class=" text-center">
                 <ul class="pagination" style="margin: 0">
-                    <li class="active"><a href="http://www.chinahadoop.cn/?page=1">1</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=2">2</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=3">3</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=4">4</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=5">5</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=2">下一页</a></li>
-                    <li><a href="http://www.chinahadoop.cn/?page=18">尾页</a></li>
+                    <li class="active"><a href="http://www.xuebusi.cn/?page=1">1</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=2">2</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=3">3</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=4">4</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=5">5</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=2">下一页</a></li>
+                    <li><a href="http://www.xuebusi.cn/?page=18">尾页</a></li>
                 </ul>
             </nav>
         </nav>
@@ -106,7 +106,7 @@
     var app = {};
     app.debug = false;
     app.version = '11.0.1.1';
-    app.httpHost = 'http://www.chinahadoop.cn';
+    app.httpHost = 'http://www.xuebusi.cn';
     app.basePath = '//scb1a9q0-sb.qiqiuyun.net';
     app.theme = 'jianmo';
     app.themeGlobalScript = 'theme/global-script';

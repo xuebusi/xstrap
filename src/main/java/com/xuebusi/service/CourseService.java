@@ -3,6 +3,7 @@ package com.xuebusi.service;
 import com.xuebusi.entity.Course;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 /**
  * 课程
@@ -47,4 +48,6 @@ public interface CourseService {
      * @return
      */
     Page<Course> findByCourseNavigationAndCourseCategory(String courseNavigation, String courseCategory, Pageable pageable);
+
+    Page<Course> findList(String navigation, String category, Pageable pageable);
 }

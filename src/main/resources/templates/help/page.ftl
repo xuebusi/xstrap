@@ -13,7 +13,7 @@
 <html>
 <!--<![endif]-->
 <html lang="zh_CN">
-<!-- Mirrored from www.chinahadoop.cn/page/agreement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:15 GMT -->
+<!-- Mirrored from www.xuebusi.cn/page/agreement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:15 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <!-- /Added by HTTrack -->
@@ -68,30 +68,30 @@ aA[index].style.color = 'red'*/
             <div class="section-header">
                 <h1>用户服务使用协议</h1>
             </div>
-            <p style="margin-left:36pt; text-align:center"><span style="font-size:16px;"><strong>小象学院服务使用协议的接受</strong></span>
+            <p style="margin-left:36pt; text-align:center"><span style="font-size:16px;"><strong>学布斯教育学院服务使用协议的接受</strong></span>
             </p>
             <ul>
                 <li style="text-align:left"><strong>1. </strong><strong>约定：</strong>
                 </li>
             </ul>
-            <p style="margin-left:72pt">通过访问和/或使用本网站，您表示同意接受本协议的所有条件和条款。北京小象科技有限公司（以下简称“小象学院”）作为运营者依据本协议为您提供服务。如果您不愿接受本协议的全部条件和条款，请您不要访问或使用本网站。</p>
+            <p style="margin-left:72pt">通过访问和/或使用本网站，您表示同意接受本协议的所有条件和条款。北京学布斯教育科技有限公司（以下简称“学布斯教育学院”）作为运营者依据本协议为您提供服务。如果您不愿接受本协议的全部条件和条款，请您不要访问或使用本网站。</p>
             <ul>
                 <li style="text-align:left"><strong>2. </strong><strong>本协议的变更和修改</strong>
                 </li>
             </ul>
-            <p style="margin-left:72pt">小象学院有权随时对本协议进行修改，并且一旦发生协议条款的变动，小象学院将在相关页面上提示修改的内容；用户如果不同意本协议的修改，可以放弃使用或访问本网站或取消已经获得的服务；如果用户选择在本协议变更后继续访问或使用本网站，则视为用户已经接受本协议的修改。</p>
+            <p style="margin-left:72pt">学布斯教育学院有权随时对本协议进行修改，并且一旦发生协议条款的变动，学布斯教育学院将在相关页面上提示修改的内容；用户如果不同意本协议的修改，可以放弃使用或访问本网站或取消已经获得的服务；如果用户选择在本协议变更后继续访问或使用本网站，则视为用户已经接受本协议的修改。</p>
             <ul>
                 <li style="text-align:left"><strong>3. </strong><strong>服务说明</strong>
                 </li>
             </ul>
-            <p style="margin-left:72pt">（1）小象学院是一个向广大用户提供技术交流和培训的服务平台。</p>
-            <p style="margin-left:72pt">（2）小象学院运用自己的系统通过互联网向用户提供服务，除非另有明确规定，增强或强化目前服务的任何新功能，包括新产品以及新增加的服务，均无条件地适用本协议。</p>
+            <p style="margin-left:72pt">（1）学布斯教育学院是一个向广大用户提供技术交流和培训的服务平台。</p>
+            <p style="margin-left:72pt">（2）学布斯教育学院运用自己的系统通过互联网向用户提供服务，除非另有明确规定，增强或强化目前服务的任何新功能，包括新产品以及新增加的服务，均无条件地适用本协议。</p>
             <ul>
                 <li style="text-align:left"><strong>4. </strong><strong>用户行为</strong>
                 </li>
             </ul>
             <p style="margin-left:22.5pt">4.1 用户帐号、密码和安全</p>
-            <p style="margin-left:22.5pt">用户一旦注册成功，便成为小象学院的合法用户，将得到一个密码和帐号。用户应采取合理措施维护其密码和帐号的安全。用户对利用该密码和帐号所进行的一切活动负全部责任；由该等活动所导致的任何损失或损害由用户承担，小象学院不承担任何责任。</p>
+            <p style="margin-left:22.5pt">用户一旦注册成功，便成为学布斯教育学院的合法用户，将得到一个密码和帐号。用户应采取合理措施维护其密码和帐号的安全。用户对利用该密码和帐号所进行的一切活动负全部责任；由该等活动所导致的任何损失或损害由用户承担，学布斯教育学院不承担任何责任。</p>
         </div>
     </div>
     <#include "../common/footer.ftl">
@@ -243,6 +243,6 @@ aA[index].style.color = 'red'*/
     seajs.use(app.mainScript);
 </script>
 </body>
-<!-- Mirrored from www.chinahadoop.cn/page/agreement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:16 GMT -->
+<!-- Mirrored from www.xuebusi.cn/page/agreement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:16 GMT -->
 
 </html>

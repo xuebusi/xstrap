@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>全部 - 小象学院 - 互联网新技术学习平台|人工智能|大数据|机器学习|深度学习|Python|Java|Hadoop|Spark|Linux|MySQL|数据分析</title>
+    <title>全部 - 学布斯教育 - 为程序员们提供永久免费的、企业项目实战视频课程。只要学不死，就往死里学！</title>
     <meta name="keywords" content="全部">
     <meta name="description" content="">
     <meta content="rqSuaYwE3ePmJmClYwNor8G4hVQcYaYuosnbLLWq3mo" name="csrf-token">

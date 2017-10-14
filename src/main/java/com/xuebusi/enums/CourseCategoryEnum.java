@@ -9,8 +9,12 @@ package com.xuebusi.enums;
  */
 public enum CourseCategoryEnum {
 
+    all(0, "所有"),
+
     systematic(1, "系统课"),
+
     open(2, "公开课"),
+
     bootcamp(3, "训练营");
 
     private int code;

@@ -10,6 +10,8 @@ package com.xuebusi.enums;
  */
 public enum CourseNavigationEnum {
 
+    all(0, "所有"),
+
     ai(1, "人工智能"),
 
     bigdata(2, "大数据"),

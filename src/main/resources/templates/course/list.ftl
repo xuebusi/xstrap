@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)http://www.chinahadoop.cn/ -->
+<!-- saved from url=(0026)http://www.xuebusi.cn/ -->
 <html lang="zh_CN">
 <!--<![endif]-->
 <#include "../common/head.ftl">
@@ -150,7 +150,7 @@
     var app = {};
     app.debug = false;
     app.version = '11.0.1.1';
-    app.httpHost = 'http://www.chinahadoop.cn';
+    app.httpHost = 'http://www.xuebusi.cn';
     app.basePath = '//scb1a9q0-sb.qiqiuyun.net';
     app.theme = 'jianmo';
     app.themeGlobalScript = 'theme/global-script';

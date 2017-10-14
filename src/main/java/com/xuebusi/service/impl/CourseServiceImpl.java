@@ -1,12 +1,19 @@
 package com.xuebusi.service.impl;
 
 import com.xuebusi.entity.Course;
+import com.xuebusi.enums.CourseCategoryEnum;
+import com.xuebusi.enums.CourseNavigationEnum;
 import com.xuebusi.repository.CourseRepository;
 import com.xuebusi.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.criteria.*;
 
 /**
  * 课程
@@ -70,6 +77,38 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Page<Course> findByCourseNavigationAndCourseCategory(String courseNavigation, String courseCategory, Pageable pageable) {
         return courseRepository.findByCourseNavigationAndCourseCategory(courseNavigation, courseCategory, pageable);
+    }
+
+    @Override
+    public Page<Course> findList(final String navigation, final String category, Pageable pageable) {
+
+        Specification<Course> specification = new Specification<Course>() {
+            @Override
+            public Predicate toPredicate(Root root, CriteriaQuery query, CriteriaBuilder cb) {
+                Path courseNavigationPath = root.get("courseNavigation");
+                Path courseCategoryPath = root.get("courseCategory");
+                Predicate courseNavigationPredicate = null;
+                Predicate courseCategoryPredicate = null;
+                if (!CourseNavigationEnum.all.name().equals(navigation)) {
+                    courseNavigationPredicate = cb.equal(courseNavigationPath, navigation);
+                }
+                if (!CourseCategoryEnum.all.name().equals(category)) {
+                    courseCategoryPredicate = cb.equal(courseCategoryPath, category);
+                }
+                if (courseNavigationPredicate != null && courseCategoryPredicate == null) {
+                    query.where(courseNavigationPredicate);
+                }
+                if (courseNavigationPredicate == null && courseCategoryPredicate != null) {
+                    query.where(courseCategoryPredicate);
+                }
+                if (courseNavigationPredicate != null && courseCategoryPredicate != null) {
+                    query.where(courseNavigationPredicate, courseCategoryPredicate);
+                }
+                return null;
+            }
+        };
+        Page<Course> coursePage = courseRepository.findAll(specification, pageable);
+        return coursePage;
     }
 
 }
