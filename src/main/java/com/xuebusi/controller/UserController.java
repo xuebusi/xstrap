@@ -29,8 +29,25 @@ public class UserController {
         return new ModelAndView("/user/login", map);
     }
 
+    @GetMapping(value = "/reset")
+    public ModelAndView reset(Map<String, Object> map) {
+
+
+        return new ModelAndView("/user/reset", map);
+    }
+
     @PostMapping(value = "/register/captcha/check")
     public String check() {
+
+        return "";
+    }
+
+    /**
+     * 手机注册获取验证码
+     * @return
+     */
+    @PostMapping(value = "/register/captcha/modal")
+    public String captcha() {
 
         return "";
     }

@@ -212,15 +212,15 @@
     app.imgCropUrl = 'file/img/crop.html';
     app.lessonCopyEnabled = '1';
     app.cloudSdkCdn = '';
-    app.mainScript = '../scb1a9q0-sb.qiqiuyun.net/bundles/topxiaweb/js/appce61.js?11.0.1.1';
+    app.mainScript = 'http://localhost:8080/js/app.js';
     app.lang = 'zh_CN';
 </script>
-<script src="../scb1a9q0-sb.qiqiuyun.net/bundles/bazingajstranslation/js/translator.mince61.js?11.0.1.1"></script>
-<script src="translations/js"></script>
-<script src="../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs/2.2.1/seace61.js?11.0.1.1"></script>
-<script src="../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-style/1.0.2/seajs-stylece61.js?11.0.1.1"></script>
-<script src="../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-text/1.1.1/seajs-text.mince61.js?11.0.1.1"></script>
-<script src="../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs-global-configce61.js?11.0.1.1"></script>
+<script src="http://localhost:8080/js/translator.min.js"></script>
+<script src="http://localhost:8080/js"></script>
+<script src="http://localhost:8080/js/sea.js"></script>
+<script src="http://localhost:8080/js/seajs-style.js"></script>
+<script src="http://localhost:8080/js/seajs-text.min.js"></script>
+<script src="http://localhost:8080/js/seajs-global-config.js"></script>
 <script>
     seajs.use(app.mainScript);
 </script>

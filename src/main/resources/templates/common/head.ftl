@@ -11,8 +11,8 @@
     <meta content="1" name="is-open">
     <meta property="qc:admins" content="3514001051630161014770636">
     <meta property="wb:webmaster" content="7143832026c0eaae">
-    <link rel="icon" href="http://scb1a9q0-sb.qiqiuyun.net/files/system/favicon_1405502134.ico?11.0.1.1" type="image/x-icon">
-    <link rel="shortcut icon" href="http://scb1a9q0-sb.qiqiuyun.net/files/system/favicon_1405502134.ico?11.0.1.1" type="image/x-icon" media="screen">
+    <link rel="icon" href="http://www.xuebusi.com/files/system/favicon_1405502134.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.xuebusi.com/files/system/favicon_1405502134.ico" type="image/x-icon" media="screen">
     <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/bootstrap-red-light.css" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="http://xstrap-1253363188.cosbj.myqcloud.com/css/common.css">
     <link rel="stylesheet" media="screen" href="http://xstrap-1253363188.cosbj.myqcloud.com/css/font-awesome.min.css">
@@ -20,11 +20,11 @@
     <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/main-red-light.css" rel="stylesheet">
     <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/header-white.css" rel="stylesheet">
     <!--[if lt IE 9]>
-    <script src="//scb1a9q0-sb.qiqiuyun.net/assets/libs/html5shiv.js?11.0.1.1"></script>
-    <script src="//scb1a9q0-sb.qiqiuyun.net/assets/libs/respond.min.js?11.0.1.1"></script>
+    <script src="http://localhost:8080/js/html5shiv.js"></script>
+    <script src="http://localhost:8080/js/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" async="async" charset="utf-8" src="js/zh_cn.js" data-requiremodule="lang"></script>
-    <script type="text/javascript" async="async" charset="utf-8" src="js/chat.in.js" data-requiremodule="chatManage"></script>
-    <script type="text/javascript" async="async" charset="utf-8" src="js/mqtt31.js" data-requiremodule="MQTT"></script>
-    <script type="text/javascript" async="async" charset="utf-8" src="js/mqtt.chat.js" data-requiremodule="Connection"></script>
+    <script type="text/javascript" async="async" charset="utf-8" src="http://localhost:8080/js/zh_cn.js" data-requiremodule="lang"></script>
+    <script type="text/javascript" async="async" charset="utf-8" src="http://localhost:8080/js/chat.in.js" data-requiremodule="chatManage"></script>
+    <script type="text/javascript" async="async" charset="utf-8" src="http://localhost:8080/js/mqtt31.js" data-requiremodule="MQTT"></script>
+    <script type="text/javascript" async="async" charset="utf-8" src="http://localhost:8080/js/mqtt.chat.js" data-requiremodule="Connection"></script>
 </head>

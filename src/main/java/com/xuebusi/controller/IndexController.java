@@ -98,53 +98,8 @@ public class IndexController {
      * @param size 一页有多少条数据
      * @return
      */
-    @GetMapping("/{navigation}/{category}/list2")
-    public ModelAndView list(
-            @PathVariable(value = "navigation") String navigation,
-            @PathVariable(value = "category") String category,
-            @RequestParam(value = "page", defaultValue = "1") Integer page,
-            @RequestParam(value = "size", defaultValue = "12") Integer size,
-            Map<String, Object> map) {
-        size = size > 12 ? 12 : size;
-        navigation = StringUtils.isBlank(navigation) ? "all" : navigation;
-        category = StringUtils.isBlank(category) ? "all" : category;
-        List<Sort.Order> orders= new ArrayList<>();
-        orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
-        PageRequest request = new PageRequest(page - 1, size, new Sort(orders));
-
-        Page<Course> coursePage = null;
-        if ("all".equals(category) && !"all".equals(navigation)) {
-            coursePage = courseService.findByCourseNavigation(navigation, request);
-        }
-
-        if (!"all".equals(category) && "all".equals(navigation)) {
-            coursePage = courseService.findByCourseCategory(category, request);
-        }
-
-        if (!"all".equals(category) && !"all".equals(navigation)){
-            coursePage = courseService.findByCourseNavigationAndCourseCategory(navigation, category, request);
-        }
-
-        if ("all".equals(category) && "all".equals(navigation)) {
-            coursePage = courseService.findList(request);
-        }
-
-        map.put("coursePage", coursePage);
-        map.put("currentPage", page);
-        map.put("size", size);
-        map.put("category", category);
-        map.put("navigation", navigation);
-        return new ModelAndView("/course/list", map);
-    }
-
-    /**
-     * 课程列表分类查询
-     * @param page 第几页, 从1页开始
-     * @param size 一页有多少条数据
-     * @return
-     */
     @GetMapping("/{navigation}/{category}/list")
-    public ModelAndView list2(
+    public ModelAndView list(
             @PathVariable(value = "navigation",required = false) String navigation,
             @PathVariable(value = "category",required = false) String category,
             @RequestParam(value = "page", defaultValue = "1") Integer page,

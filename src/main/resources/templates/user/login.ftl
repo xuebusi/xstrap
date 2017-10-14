@@ -136,7 +136,7 @@
                 </form>
 
                 <div class="mbl" style="margin-top: -5px;">
-                    <a href="http://www.xuebusi.cn/password/reset">找回密码?</a>
+                    <a href="/reset">找回密码?</a>
                     <span class="text-muted" style="padding-right: 20%"></span>
                     <span class="text-muted">还没有注册帐号？</span>
                     <a href="http://www.xuebusi.cn/register?goto=/ai/all/list%3Fpage%3D1">免费注册</a>
@@ -196,15 +196,15 @@
     app.imgCropUrl = 'http://www.xuebusi.cn/file/img/crop';
     app.lessonCopyEnabled = '1';
     app.cloudSdkCdn = '';
-    app.mainScript = 'http://scb1a9q0-sb.qiqiuyun.net/bundles/topxiaweb/js/app.js?11.0.1.1';
+    app.mainScript = 'http://localhost:8080/js/app.js';
     app.lang = 'zh_CN';
 </script>
-<script src="http://scb1a9q0-sb.qiqiuyun.net/bundles/bazingajstranslation/js/translator.min.js?11.0.1.1"></script>
-<script src="http://www.xuebusi.cn/translations/js"></script>
-<script src="http://scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs/2.2.1/sea.js?11.0.1.1"></script>
-<script src="http://scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-style/1.0.2/seajs-style.js?11.0.1.1"></script>
-<script src="http://scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-text/1.1.1/seajs-text.min.js?11.0.1.1"></script>
-<script src="http://scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs-global-config.js?11.0.1.1"></script>
+<script src="http://localhost:8080/js/translator.min.js"></script>
+<script src="http://localhost:8080/js/js"></script>
+<script src="http://localhost:8080/js/sea.js"></script>
+<script src="http://localhost:8080/js/seajs-style.js"></script>
+<script src="http://localhost:8080/js/seajs-text.min.js"></script>
+<script src="http://localhost:8080/js/seajs-global-config.js"></script>
 <script>
     seajs.use(app.mainScript);
 </script>
