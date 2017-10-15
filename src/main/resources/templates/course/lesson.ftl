@@ -134,7 +134,7 @@ aA[index].style.color = 'red'*/
                     <div class="nav-btn-tab">
                         <ul class="nav nav-tabs " role="tablist">
                             <li style="width: 25%;" role="presentation"><a href="/course/${course.id}">课程介绍</a> </li>
-                            <li style="width: 25%;" role="presentation" class="active"><a href="${course.id}/lesson">课程目录 <small class="text-muted">( ${lessonCount} )</small> </a> </li>
+                            <li style="width: 25%;" role="presentation" class="active"><a href="/course/${course.id}/lesson">课程目录 <small class="text-muted">( ${lessonCount} )</small> </a> </li>
                             <li style="width: 25%;" role="presentation"><a href="../../type/notice.html"> 听课须知</a> </li>
                             <li style="width: 25%;" role="presentation"><a href="../../reviews/index.html">往期评论 <small class="text-muted">( 1 )</small></a> </li>
                         </ul>

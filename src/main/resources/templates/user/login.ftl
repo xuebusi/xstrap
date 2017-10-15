@@ -59,22 +59,22 @@
         <div class="es-section login-section">
             <div class="logon-tab clearfix">
                 <h2>用户登录</h2>
-                <b><a href="http://www.xuebusi.cn/login?goto=/ai/all/list%3Fpage%3D1">微信扫码登录</a></b>
+                <b><a href="/login?goto=/ai/all/list%3Fpage%3D1">微信扫码登录</a></b>
                 <b><a class="active">帐号密码登录</a></b>
 
             </div>
             <div class="login-main">
-                <form id="login-form" class="form-vertical" method="post" action="http://www.xuebusi.cn/login_check">
+                <form id="login-form" class="form-vertical" method="post" action="/login_check">
 
 
                     <div class="form-group mbl">
                         <div class="controls">
-                            <input class="form-control input-lg" id="login_username" type="text" name="_username" value="" required placeholder='邮箱/手机/用户名' />
+                            <input class="form-control input-lg" id="login_username" type="text" name="username" value="" required placeholder='邮箱/手机/用户名' />
                         </div>
                     </div>
                     <div class="form-group mbl">
                         <div class="controls" style="position: relative">
-                            <input class="form-control input-lg" id="login_password" type="password" name="_password" required placeholder='密码'/>
+                            <input class="form-control input-lg" id="login_password" type="password" name="password" required placeholder='密码'/>
 
                             <div id="pwd-show"></div>
                             <style>
@@ -122,7 +122,7 @@
 
                     <div class="form-group mbl">
                         <div class="controls">
-                            <input type="checkbox" name="_remember_me" checked="checked"> 记住密码
+                            <input type="checkbox" name="rememberme" checked="checked"> 记住密码
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@
                     <a href="/reset">找回密码?</a>
                     <span class="text-muted" style="padding-right: 20%"></span>
                     <span class="text-muted">还没有注册帐号？</span>
-                    <a href="http://www.xuebusi.cn/register?goto=/ai/all/list%3Fpage%3D1">免费注册</a>
+                    <a href="/register">免费注册</a>
                 </div>
 
                 <div class="social-login">
