@@ -62,8 +62,8 @@
                 <h2 class="reg">注册帐号</h2>
             </div>
             <div class="login-main">
-                <form id="register-form" method="post" action="#">
-                    <div class="form-group mbl">
+                <form id="register-form" method="post" action="/u/register">
+                    <#--<div class="form-group mbl">
                         <div class="controls">
                             <input type="text" id="register_emailOrMobile" name="emailOrMobile" required="required" class="form-control input-lg" data-url="/register/email_or_mobile/check" placeholder="手机号">
                         </div>
@@ -72,6 +72,16 @@
                     <div class="form-group mbl">
                         <div class="controls">
                             <input type="text" id="register_nickname" name="nickname" required="required" class="form-control input-lg" data-url="/register/nickname/check" placeholder="昵称">
+                        </div>
+                    </div>-->
+
+                    <#if errMsg?exists >
+                        <div class="alert alert-danger">${errMsg}</div>
+                    </#if>
+
+                    <div class="form-group mbl">
+                        <div class="controls">
+                            <input type="text" id="register_username" name="username" required="required" class="form-control input-lg" <#--data-url="/register/username/check"--> placeholder="用户名">
                         </div>
                     </div>
                     <div class="form-group mbl">
@@ -85,7 +95,6 @@
                                     background-size: 100%;
                                     padding-bottom: 40px;
                                 }
-
                             </style>
                             <script>
                                 window.onload = function(){
@@ -101,13 +110,11 @@
                                             pwdShow.style.backgroundImage = 'url(/images/pwd_hide.png)'
                                         }
                                     }
-
                                 }
-
                             </script>
                         </div>
                     </div>
-                    <div class="form-group mbl js-captcha">
+                    <#--<div class="form-group mbl js-captcha">
                         <div class="controls row">
                             <div class = "col-xs-5" style="padding: 0">
                                 <input type="text" class="form-control input-lg" id="captcha_code" name="captcha_code" maxlength="5" placeholder="验证码" required="required"  data-url="/register/captcha/check" >
@@ -134,9 +141,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-
-                    <div id="errMsg" style="padding: 0;margin: 0;"></div>
+                    </div>-->
 
                     <div class="form-group mbl">
                         <div class="controls">
@@ -148,11 +153,11 @@
 
                     <div class="form-group mbl">
                         <div class="controls">
-                            <button type="submit" id="register-btn" data-submiting-text="正在提交" class="btn btn-primary btn-lg btn-block">注册</button>
+                            <button type="submit" id="register-btn" <#--data-submiting-text="正在提交"--> class="btn btn-primary btn-lg btn-block">注册</button>
                         </div>
-                        <div class="controls" style="margin-top:15px;">
+                        <#--<div class="controls" style="margin-top:15px;">
                             <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxbd41a67ab16689b6&amp;response_type=code&amp;redirect_uri=http%3A%2F%2Fwww.xuebusi.cn%2Flogin%2Fbind%2Fweixinweb%2Fcallback%3Ftoken%3DFxXbpyMN5zgsbOK6eWLH3nrs3y6MLtzf&amp;scope=snsapi_login" id="wx-reg-btn" data-submiting-text="正在跳转" class="btn btn-primary btn-lg btn-block">微信注册</a>
-                        </div>
+                        </div>-->
                     </div>
 
                     <input type="hidden" name="_csrf_token" value="FIG-fkQXNI2-zIFLHp70pDbMlxAt4K5EQN24ab8johY">

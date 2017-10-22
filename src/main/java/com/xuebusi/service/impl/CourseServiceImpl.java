@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
+import java.util.List;
 
 /**
  * 课程
@@ -43,6 +44,16 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course findOne(Integer id) {
         return courseRepository.findOne(id);
+    }
+
+    /**
+     * 根据多个id查询课程
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<Course> findByIdIn(List<Integer> ids){
+        return courseRepository.findByIdIn(ids);
     }
 
     /**

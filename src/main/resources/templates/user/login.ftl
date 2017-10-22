@@ -66,7 +66,9 @@
             <div class="login-main">
                 <form id="login-form" class="form-vertical" method="post" action="/login_check">
 
-
+                    <#if successMsg?exists >
+                        <div class="alert alert-success">${successMsg}</div>
+                    </#if>
                     <div class="form-group mbl">
                         <div class="controls">
                             <input class="form-control input-lg" id="login_username" type="text" name="username" value="" required placeholder='邮箱/手机/用户名' />
@@ -118,7 +120,11 @@
                         </div>
                     </div>
 
-                    <div id="errMsg" style="padding: 0"></div>
+                    <div id="errMsg" style="padding: 0">
+                        <#if errMsg?exists >
+                            <div class="alert alert-danger">${errMsg}</div>
+                        </#if>
+                    </div>
 
                     <div class="form-group mbl">
                         <div class="controls">

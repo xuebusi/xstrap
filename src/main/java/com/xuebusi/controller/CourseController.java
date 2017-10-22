@@ -1,9 +1,6 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.entity.Course;
-import com.xuebusi.entity.CourseDetail;
-import com.xuebusi.entity.Lesson;
-import com.xuebusi.entity.Teacher;
+import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
 import com.xuebusi.service.CourseDetailService;
@@ -21,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -76,13 +75,14 @@ public class CourseController {
 
     /**
      * 查询课程目录
-     * @param id
+     * @param courseId
      * @param map
      * @return
      */
     @GetMapping("/{courseId}/lesson")
-    public ModelAndView lesson(@PathVariable("courseId") Integer id, Map<String, Object> map) {
-        Course course = courseService.findOne(id);
+    public ModelAndView lesson(@PathVariable("courseId") Integer courseId,HttpSession session, Map<String, Object> map) {
+
+        Course course = courseService.findOne(courseId);
         Teacher teacher = null;
         String courseNavigationStr = "";
         String courseCategoryStr = "";
@@ -91,8 +91,8 @@ public class CourseController {
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
             teacher = teacherService.findOne(course.getCourseTeacherId());
         }
-        CourseDetail courseDetail = courseDetailService.findOne(id);
-        List<Lesson> lessonList = lessonService.findByCourseId(id);
+        CourseDetail courseDetail = courseDetailService.findOne(courseId);
+        List<Lesson> lessonList = lessonService.findByCourseId(courseId);
         map.put("course", course);
         map.put("courseDetail", courseDetail);
         map.put("teacher", teacher);
@@ -100,6 +100,15 @@ public class CourseController {
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
+
+        User user = (User)session.getAttribute("user");
+        if (user != null) {
+            String courseIds = user.getCourseIds();
+            List<String> idList = Arrays.asList(courseIds.split(","));
+            if (idList.contains(String.valueOf(courseId))) {
+                return new ModelAndView("/my/courses/mylesson", map);
+            }
+        }
         return new ModelAndView("/course/lesson", map);
     }
 

@@ -1,11 +1,12 @@
 package com.xuebusi.controller;
 
+import com.xuebusi.common.utils.MD5Utils;
 import com.xuebusi.entity.User;
 import com.xuebusi.service.UserService;
+import com.xuebusi.vo.UserFormVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.FormParam;
 import java.util.Map;
 
 /**
@@ -28,29 +28,48 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 跳转到注册页
+     * @param map
+     * @return
+     */
     @GetMapping(value = "/register")
     public ModelAndView register(Map<String, Object> map) {
-
-
         return new ModelAndView("/user/register", map);
     }
 
+    /**
+     * 跳转到登录页
+     * @param map
+     * @return
+     */
     @GetMapping(value = "/login")
     public ModelAndView login(Map<String, Object> map) {
-
-
         return new ModelAndView("/user/login", map);
     }
 
+    /**
+     * 登录成功后的loading页
+     * @param map
+     * @return
+     */
+    /*@GetMapping(value = "/login/loading")
+    public ModelAndView loginLoading(Map<String, Object> map) {
+        return new ModelAndView("/user/login-loading", map);
+    }*/
+
+    /**
+     * 跳转到密码重置页
+     * @param map
+     * @return
+     */
     @GetMapping(value = "/reset")
     public ModelAndView reset(Map<String, Object> map) {
-
-
         return new ModelAndView("/user/reset", map);
     }
 
     /**
-     * 登出
+     * 退出登录
      * @param request
      * @param map
      * @return
@@ -76,35 +95,65 @@ public class UserController {
      */
     @PostMapping(value = "/register/captcha/modal")
     public String captcha() {
-
         return "";
     }
 
     /**
-     * 登录
+     * 用户登录
      * @param username 用户名
      * @param password 密码
-     * @param rememberMe 记住我
      * @return
      */
     @PostMapping(value = "/login_check")
     public ModelAndView loginCheck(@RequestParam("username")String username,
                              @RequestParam("password")String password,
-                             @RequestParam("rememberme")String rememberMe,
+                             /*@RequestParam("rememberme")String rememberme,*/
                                    HttpServletRequest request,
                              Map<String, Object> map) {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") != null){
-            map.put("user", (User)session.getAttribute("user"));
-            return new ModelAndView("/user/settings", map);
-        }
-        User user = userService.findByUsername(username);
-        if (user != null) {
-            session.setAttribute("user", user);
+        User user = (User)session.getAttribute("user");
+        if (user != null){
             map.put("user", user);
             return new ModelAndView("/user/settings", map);
         }
-        return new ModelAndView("/user/login");
+        User userFromDb = userService.findByUsername(username);
+        if (userFromDb != null && userFromDb.getPassword().equals(MD5Utils.md5(password))) {
+            //userFromDb.setRememberme(rememberme);
+            //userService.save(userFromDb);
+            session.setAttribute("user", userFromDb);
+            map.put("user", userFromDb);
+            //return new ModelAndView("/user/login-loading", map);
+            //return new ModelAndView("/user/settings", map);
+            return new ModelAndView(new RedirectView("/all/all/list"), map);
+        }
+        map.put("errMsg", "用户名或密码不正确");
+        return new ModelAndView("/user/login", map);
+    }
+
+    /**
+     * 用户注册
+     * @param username
+     * @param password
+     * @param request
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/u/register")
+    public ModelAndView register(@RequestParam("username")String username,
+                                   @RequestParam("password")String password,
+                                   HttpServletRequest request,
+                                   Map<String, Object> map) {
+        User userFromDb = userService.findByUsername(username);
+        if (userFromDb == null) {
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(MD5Utils.md5(password));
+            userService.save(user);
+            map.put("successMsg", "注册成功，请登录！");
+            return new ModelAndView("/user/login", map);
+        }
+        map.put("errMsg", "用户名已存在，请重新输入！");
+        return new ModelAndView("/user/register", map);
     }
 
     /**
@@ -115,10 +164,10 @@ public class UserController {
     @GetMapping(value = "/settings")
     public ModelAndView settings(HttpServletRequest request, Map<String, Object> map) {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") != null) {
-            User user = (User) session.getAttribute("user");
-            User newUser = userService.findOne(user.getId());
-            map.put("user", newUser);
+        User user = (User)session.getAttribute("user");
+        if (user != null) {
+            User userFromDb = userService.findOne(user.getId());
+            map.put("user", userFromDb);
             return new ModelAndView("/user/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));
@@ -130,18 +179,15 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/settings/save")
-    public ModelAndView saveSettings(User userForm, HttpServletRequest request, Map<String, Object> map) {
+    public ModelAndView saveSettings(UserFormVo userFormVo, HttpServletRequest request, Map<String, Object> map) {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") != null) {
-
-            User user = new User();
-            //如果id为空, 说明是新增
-            if (!StringUtils.isEmpty(userForm.getId())) {
-                user = userService.findOne(userForm.getId());
-            }
-            BeanUtils.copyProperties(userForm, user);
-            userService.save(user);
-            return new ModelAndView(new RedirectView("/settings"));
+        User user = (User)session.getAttribute("user");
+        if (user != null) {
+            User userFromDb = userService.findOne(user.getId());
+            BeanUtils.copyProperties(userFormVo, userFromDb);
+            userService.save(userFromDb);
+            map.put("successMsg", "基础信息保存成功");
+            return new ModelAndView("/user/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));
     }

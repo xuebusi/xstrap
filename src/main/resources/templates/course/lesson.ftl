@@ -79,13 +79,14 @@ aA[index].style.color = 'red'*/
                     <div class="h5 hidden-xs hidden-sm">
                         <span>直播已结束</span>
                         <div class="hidden-xs hidden-sm" style="display: inline-block">
-         <span class="es-share top"> <a class="dropdown-toggle" href="#" data-toggle="dropdown"> <p style="margin: 0;"><i class="es-icon es-icon-share" style="font-size: 16px"></i></p> </a> 
-          <div class="dropdown-menu  js-social-share-params" data-title="零基础Python入门" data-summary="课程名称：《零基础Python入门》主讲老师：梁斌    资深算法工程师查尔斯特大学（Charles..." data-message="我正在学习《零基础Python入门》，收获巨大哦，分享并@xuebusi更有好礼相送，一起来学习吧！" data-url="http://www.xuebusi.cn/course/1040" data-picture="../../../../../scb1a9q0-sb.qiqiuyun.net/files/course/2017/09-15/12132446af11122547.jpg">
-              <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//www.xuebusi.cn/course/1040"><i class="es-icon es-icon-weixin"></i></a>
-              <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a>
-              <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a>
-              <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a>
-          </div> </span>
+                        <span class="es-share top"> <a class="dropdown-toggle" href="#" data-toggle="dropdown"> <p style="margin: 0;"><i class="es-icon es-icon-share" style="font-size: 16px"></i></p> </a>
+                        <div class="dropdown-menu  js-social-share-params" data-title="零基础Python入门" data-summary="课程名称：《零基础Python入门》主讲老师：梁斌    资深算法工程师查尔斯特大学（Charles..." data-message="我正在学习《零基础Python入门》，收获巨大哦，分享并@xuebusi更有好礼相送，一起来学习吧！" data-url="http://www.xuebusi.cn/course/1040" data-picture="../../../../../scb1a9q0-sb.qiqiuyun.net/files/course/2017/09-15/12132446af11122547.jpg">
+                          <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//www.xuebusi.cn/course/1040"><i class="es-icon es-icon-weixin"></i></a>
+                          <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a>
+                          <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a>
+                          <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a>
+                        </div>
+                        </span>
                         </div>
                     </div>
                     <div class="h5 student-num hidden-lg hidden-xs hidden-sm">
@@ -206,92 +207,7 @@ aA[index].style.color = 'red'*/
 <#include "../common/footer.ftl">
 <!-- 侧边栏快捷操作 -->
 <#include "../common/sidebar.ftl">
-<div id="login-modal" class="modal" data-url="/login/ajax"></div>
-<div id="modal" class="modal"></div>
-<div id="attachment-modal" class="modal"></div>
-<script>
-    var app = {};
-    app.debug = false;
-    app.version = '11.0.1.1';
-    app.httpHost = '../../../../index.html';
-    app.basePath = '//scb1a9q0-sb.qiqiuyun.net';
-    app.theme = 'jianmo';
-    app.themeGlobalScript = 'theme/global-script';
-    app.jsPaths = {
-        "common": "common",
-        "theme": "\/\/scb1a9q0-sb.qiqiuyun.net\/themes\/jianmo\/js",
-        "schoolgatebundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/schoolgate\/js",
-        "discountbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/discount\/js",
-        "moneycardbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/moneycard\/js",
-        "chargecoinbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/chargecoin\/js",
-        "homeworkbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/homework\/js",
-        "userimporterbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/userimporter\/js",
-        "gracefulthemebundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/gracefultheme\/js",
-        "questionplusbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/questionplus\/js",
-        "vipbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/vip\/js",
-        "couponbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/coupon\/js",
-        "customwebbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/customweb\/js",
-        "customadminbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/customadmin\/js",
-        "topxiawebbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/topxiaweb\/js",
-        "topxiaadminbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/topxiaadmin\/js",
-        "classroombundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/classroom\/js",
-        "materiallibbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/materiallib\/js",
-        "sensitivewordbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/sensitiveword\/js",
-        "permissionbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/permission\/js",
-        "orgbundle": "\/\/scb1a9q0-sb.qiqiuyun.net\/bundles\/org\/js"
-    };
-
-    app.crontab = '/common/crontab';
-
-    var CKEDITOR_BASEPATH = app.basePath + '/assets/libs/ckeditor/4.6.7/';
-    var CLOUD_FILE_SERVER = "";
-
-    app.config = {
-        "api": {
-            "weibo": {
-                "key": "3735672790"
-            },
-            "qq": {
-                "key": "101291257"
-            },
-            "douban": {
-                "key": ""
-            },
-            "renren": {
-                "key": ""
-            }
-        },
-        "cloud": {
-            "video_player": "http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/GrindPlayer.swf",
-            "video_player_watermark_plugin": "http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/Watermake-1.0.3.swf",
-            "video_player_fingerprint_plugin": "http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/Fingerprint-1.0.1.swf"
-        },
-        "loading_img_path": "\/\/scb1a9q0-sb.qiqiuyun.net\/assets\/img\/default\/loading.gif?11.0.1.1"
-    };
-
-    app.arguments = {};
-    app.arguments = {
-        "course_uri": "\/course\/1040"
-    };
-
-    app.scripts = ["course\/show", "default.html\/header.js", "course\/common", "common\/share-dropdown", "common\/weixin-share", "es-bar\/index", "notification\/notification"];
-
-    app.uploadUrl = '../../../../file/upload.html';
-    app.imgCropUrl = '../../../../file/img/crop.html';
-    app.lessonCopyEnabled = '1';
-    app.cloudSdkCdn = '';
-    app.mainScript = '../../../../../scb1a9q0-sb.qiqiuyun.net/bundles/topxiaweb/js/appce61.js?11.0.1.1';
-    app.lang = 'zh_CN';
-</script>
-<script src="../../../../../scb1a9q0-sb.qiqiuyun.net/bundles/bazingajstranslation/js/translator.mince61.js?11.0.1.1"></script>
-<script src="../../../../translations/js"></script>
-<script src="../../../../../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs/2.2.1/seace61.js?11.0.1.1"></script>
-<script src="../../../../../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-style/1.0.2/seajs-stylece61.js?11.0.1.1"></script>
-<script src="../../../../../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs/seajs-text/1.1.1/seajs-text.mince61.js?11.0.1.1"></script>
-<script src="../../../../../scb1a9q0-sb.qiqiuyun.net/assets/libs/seajs-global-configce61.js?11.0.1.1"></script>
-<script>
-    seajs.use(app.mainScript);
-</script>
+<#include "../common/login-modal.ftl">
 <!-- Mirrored from www.xuebusi.cn/course/1040/lesson/hflist/all by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 00:11:54 GMT -->
 </body>
 </html>
