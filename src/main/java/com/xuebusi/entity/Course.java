@@ -38,6 +38,10 @@ public class Course {
 
     private Integer courseTeacherId;//讲师id
 
+    private Date courseStartTime;//课程开始时间
+
+    private Date courseEndTime;//课程结束时间
+
     public Integer getId() {
         return id;
     }
@@ -126,20 +130,19 @@ public class Course {
         this.courseTeacherId = courseTeacherId;
     }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", courseTitle='" + courseTitle + '\'' +
-                ", courseImgUrl='" + courseImgUrl + '\'' +
-                ", courseUserCount=" + courseUserCount +
-                ", courseTeacherName='" + courseTeacherName + '\'' +
-                ", coursePrice=" + coursePrice +
-                ", courseLink='" + courseLink + '\'' +
-                ", createTime=" + createTime +
-                ", courseCategory='" + courseCategory + '\'' +
-                ", courseNavigation='" + courseNavigation + '\'' +
-                ", courseTeacherId=" + courseTeacherId +
-                '}';
+    public Date getCourseStartTime() {
+        return courseStartTime;
+    }
+
+    public void setCourseStartTime(Date courseStartTime) {
+        this.courseStartTime = courseStartTime;
+    }
+
+    public Date getCourseEndTime() {
+        return courseEndTime;
+    }
+
+    public void setCourseEndTime(Date courseEndTime) {
+        this.courseEndTime = courseEndTime;
     }
 }

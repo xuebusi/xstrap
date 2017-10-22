@@ -19,10 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 课程
@@ -31,6 +29,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value="/course")
 public class CourseController {
+
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Autowired
     private CourseService courseService;
@@ -89,6 +89,7 @@ public class CourseController {
         if (course != null) {
             courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
+            map.put("courseIsEnd", course.getCourseEndTime().getTime() - System.currentTimeMillis() < 0 ? 1 : 0);//1课程更新完毕
             teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         CourseDetail courseDetail = courseDetailService.findOne(courseId);
