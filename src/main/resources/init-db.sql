@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2017-10-15 20:55:03
+Date: 2017-10-22 20:35:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -922,8 +922,8 @@ CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL COMMENT '用户名',
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
-  `remember_me` varchar(255) DEFAULT NULL COMMENT '记住我',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `rememberme` varchar(255) DEFAULT '' COMMENT '记住我',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `truename` varchar(255) DEFAULT NULL COMMENT '真实姓名',
   `gender` varchar(255) DEFAULT NULL COMMENT '性别 1男2女',
   `idcard` varchar(255) DEFAULT NULL COMMENT '身份证号码',
@@ -942,13 +942,16 @@ CREATE TABLE `tb_user` (
   `city` varchar(255) DEFAULT NULL COMMENT '所在城市',
   `company` varchar(255) DEFAULT NULL COMMENT '公司',
   `is_weibo_public` varchar(255) DEFAULT 'on' COMMENT '微博是否公开',
+  `course_ids` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES ('4', 'sysadmin', null, null, '2017-10-15 20:49:55', '张三丰6', 'female', '110101194905063476', '1390108887', '道长6', '老大6', '我是老大我怕谁6', '<p>我是张三丰6</p>\r\n', 'http://www.zsf.com6', 'http://weibo.com/zsf6', 'zhangsanfeng6', null, '5678976', 'on', 'it6', '北京6', '北京张氏有限公司6', null);
-INSERT INTO `tb_user` VALUES ('5', 'admin', null, null, '2017-10-15 20:50:30', '互惠互利4', 'female', '2432423', '324324', '胜多负少4', '胜多负少4', '第三方第三方4', '<p>儿童热帖4</p>\r\n', 'http://jlkjljl.com4', 'http://owueo.com4', 'jlskdjflj4', null, '89808080', 'on', 'IT行业4', 'beijing4', '多范式4', null);
-INSERT INTO `tb_user` VALUES ('6', 'admin1', null, null, '2017-10-15 19:57:34', '我是管理员555', 'female', '', '', '', '', '', '', '', '', '', null, '', null, null, '', '', null);
-INSERT INTO `tb_user` VALUES ('7', 'admin2', null, null, '2017-10-15 19:57:37', '我是管理员888', 'female', '', '', '', '', '', '', '', '', '', null, '', null, null, '', '', null);
+INSERT INTO `tb_user` VALUES ('4', 'sysadmin', '28KDIR9JGU68L5BBKG2VPTLS60', 'on', '2017-10-22 11:08:15', '张三疯', 'female', '110101194905063476', '1390108887', '道长6', '老大6', '我是老大我怕谁6', '<p>我是张三丰6</p>\r\n', 'http://www.zsf.com6', 'http://weibo.com/zsf6', 'zhangsanfeng6', 'on', '5678976', 'on', 'it6', '北京6', '北京张氏有限公司6', 'on', '1,2,3,4,5,6,7,8,9,10,11,12,13');
+INSERT INTO `tb_user` VALUES ('5', 'admin', '114CNIIUINKMJK72AA1P5807U3', null, '2017-10-22 12:13:26', '彩小青', 'female', '110101198809086666', '13420983378', '研发工程师', '高级工程师', '只要学不死，就往死里学！', '<p>我只是一个普通的程序猿</p>\r\n', 'http://jlkjljl.com4', 'http://owueo.com4', 'jlsk', null, '55665', 'on', 'IT行业', 'beijing', '慕课网', null, '23,45,77,89,21');
+INSERT INTO `tb_user` VALUES ('6', 'admin1', 'VUC6QAAUPFH62163JJO5T7516', 'on', '2017-10-22 11:08:15', '我是管理员555', 'female', '', '', '', '', '', '', '', '', '', null, '', null, null, '', '', null, '22,133,24,10,2,6');
+INSERT INTO `tb_user` VALUES ('7', 'admin2', '1NNMJHCF3FKPBMAI42FE92AHNN', 'on', '2017-10-22 11:08:15', '我是管理员888', 'female', '', '', '', '', '', '', '', '', '', null, '', null, null, '', '', null, '1,2,3');
+INSERT INTO `tb_user` VALUES ('8', 'sysadmin7', '28KDIR9JGU68L5BBKG2VPTLS60', 'on', '2017-10-22 14:13:49', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '56,99,4,9');
+INSERT INTO `tb_user` VALUES ('9', 'sys', '28KDIR9JGU68L5BBKG2VPTLS60', 'on', '2017-10-22 14:48:15', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '67');
