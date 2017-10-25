@@ -4,14 +4,14 @@
         <div class="es-section clearfix ">
             <!--左侧图片-->
             <div class="course-img col-lg-offset-1" style="">
-                <img class="img-responsive" src="${course.courseImgUrl}" alt="${course.courseTitle}" />
+                <img class="img-responsive" src="${(course.courseImgUrl)!''}" alt="${(course.courseTitle)!''}" />
                 <div class="tags"></div>
             </div>
             <!--左侧图片end-->
             <div class="course-info">
-                <h2 class="title hidden-xs hidden-sm" style="margin-top: 0; margin-bottom: 30px;">${course.courseTitle}</h2>
+                <h2 class="title hidden-xs hidden-sm" style="margin-top: 0; margin-bottom: 30px;">${(course.courseTitle)!''}</h2>
                 <div class="h5 hidden-xs hidden-sm">
-                    <#if courseIsEnd == 1>
+                    <#if courseIsEnd?? && courseIsEnd == 1>
                         <span>课程更新完毕</span>
                     <#else>
                     <span>开课时间：${course.courseStartTime?string('yyyy.MM.dd')}-${course.courseEndTime?string('yyyy.MM.dd')}</span>
@@ -28,11 +28,11 @@
                     </div>
                 </div>
                 <div class="h5 student-num hidden-lg hidden-xs hidden-sm">
-                    <i class="es-icon es-icon-people"></i>${course.courseUserCount}人
+                    <i class="es-icon es-icon-people"></i>${(course.courseUserCount)!''}人
                 </div>
                 <div class="teacher-name h5 hidden-xs hidden-sm">
                     老师：
-                    <span>${course.courseTeacherName}</span>
+                    <span>${(course.courseTeacherName)!''}</span>
                     <span> </span>
                 </div>
                 <div class="metas">
@@ -50,7 +50,7 @@
                     <#else>
                         <label style="color: #eb3b28; font-size: 18px;">￥</label>
                         <span class="course-price-widget">
-                            <span class="price"> ${course.coursePrice} </span>
+                            <span class="price"> ${(course.coursePrice)!''} </span>
                         </span>
                     </#if>
                 </p>

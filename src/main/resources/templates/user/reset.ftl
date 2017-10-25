@@ -202,15 +202,15 @@
     app.imgCropUrl = '../file/img/crop.html';
     app.lessonCopyEnabled = '1';
     app.cloudSdkCdn = '';
-    app.mainScript = 'http://localhost:8080/js/app.js';
+    app.mainScript = '/js/app.js';
     app.lang = 'zh_CN';
 </script>
-<script src="http://localhost:8080/js/translator.min.js"></script>
-<script src="http://localhost:8080/js"></script>
-<script src="http://localhost:8080/js/sea.js"></script>
-<script src="http://localhost:8080/js/seajs-style.js"></script>
-<script src="http://localhost:8080/js/seajs-text.min.js"></script>
-<script src="http://localhost:8080/js/seajs-global-config.js"></script>
+<script src="/js/translator.min.js"></script>
+<script src="/js"></script>
+<script src="/js/sea.js"></script>
+<script src="/js/seajs-style.js"></script>
+<script src="/js/seajs-text.min.js"></script>
+<script src="/js/seajs-global-config.js"></script>
 <script>
     seajs.use(app.mainScript);
 </script>

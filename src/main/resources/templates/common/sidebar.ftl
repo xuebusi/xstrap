@@ -65,5 +65,5 @@
             erpparam: "abc"
         }
     </script>
-    <script type="text/javascript" src="http://localhost:8080/js/ntkfstat.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/ntkfstat.js" charset="utf-8"></script>
 </div>

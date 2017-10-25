@@ -11,17 +11,18 @@
                 <div class="media-left" style="padding-bottom:0">
                     <a class=" js-user-card" href="http://www.chinahadoop.cn/user/29231"
                        data-card-url="/user/29231/card/show" data-user-id="29231">
-                        <img class="avatar-md" src="${teacher.teacherPhotoUrl}">
+                        <img class="avatar-md" src="${(teacher.teacherPhotoUrl)!''}">
                     </a>
                 </div>
                 <div class="media-body" style="padding-top:0">
                     <div class="title">
-                        <a class="link-dark link-light" href="http://www.chinahadoop.cn/user/29231">${teacher.teacherName}</a>
+                        <a class="link-dark link-light"
+                           href="http://www.chinahadoop.cn/user/29231">${(teacher.teacherName)!''}</a>
                     </div>
                     <div class="content"></div>
                 </div>
                 <div style="border-top: solid 1px #eee; display: -webkit-box; -webkit-box-orient: vertical;-webkit-line-clamp:3; overflow:hidden; text-overflow:ellipsis; margin-top: 18px">
-                    <p class="teacherAbout">${teacher.teacherAbout}</p>
+                    <p class="teacherAbout">${(teacher.teacherAbout)!''}</p>
                 </div>
                 <div style="padding-top: 22px;">
                     <h4 class="freeListen">

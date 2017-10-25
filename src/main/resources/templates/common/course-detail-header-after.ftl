@@ -10,7 +10,7 @@
                 <div class="course-info" style="width: 100%;">
                     <div style="float: left; padding-left: 10px">
                         <h2 class="title" style="display: inline-block;">
-                        ${course.courseTitle}
+                        ${(course.courseTitle)!''}
                         </h2>
 
                         <div class="hidden-xs hidden-sm" style="display: inline-block; margin-top: 0;">

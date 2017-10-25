@@ -72,10 +72,10 @@ aA[index].style.color = 'red'*/
                 <section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
                     <div class="nav-btn-tab">
                         <ul class="nav nav-tabs " role="tablist">
-                            <li style="width: 25%;" role="presentation" class="active"><a href="/course/${course.id}">课程介绍</a>
+                            <li style="width: 25%;" role="presentation" class="active"><a href="/course/${(course.id)!''}">课程介绍</a>
                             </li>
-                            <li style="width: 25%;" role="presentation"><a href="${course.id}/lesson">课程目录
-                                <small class="text-muted">( ${lessonCount} )</small>
+                            <li style="width: 25%;" role="presentation"><a href="${(course.id)!''}/lesson">课程目录
+                                <small class="text-muted">( ${lessonCount!''} )</small>
                             </a>
                             </li>
                             <li style="width: 25%;" role="presentation"><a href="894/type/notice.html"> 听课须知</a>
@@ -88,7 +88,7 @@ aA[index].style.color = 'red'*/
                     <div class="course-detail-content" style="padding: 15px">
                         <div class="es-piece">
                             <div class="piece-body p-lg clearfix">
-                                ${courseDetail.courseDesc}
+                                ${(courseDetail.courseDesc)!''}
                             </div>
                         </div>
                     </div>
@@ -106,17 +106,17 @@ aA[index].style.color = 'red'*/
                         <div class="media media-default" style="margin-bottom:15px;">
                             <div class="media-left" style="padding-bottom:0">
                                 <a class=" js-user-card" href="../user/94.html" data-card-url="/user/94/card/show" data-user-id="94">
-                                    <img class="avatar-md" src="${teacher.teacherPhotoUrl}">
+                                    <img class="avatar-md" src="${(teacher.teacherPhotoUrl)!''}">
                                 </a>
                             </div>
                             <div class="media-body" style="padding-top:0">
-                                <div class="title"> <a class="link-dark link-light" href="../user/94.html">${teacher.teacherName}</a>
+                                <div class="title"> <a class="link-dark link-light" href="../user/94.html">${(teacher.teacherName)!''}</a>
 
                                 </div>
                                 <div class="content"></div>
                             </div>
                             <div style="border-top: solid 1px #eee; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp:3; overflow:hidden; text-overflow:ellipsis; margin-top: 18px">
-                                <p class="teacherAbout">${teacher.teacherAbout}</p>
+                                <p class="teacherAbout">${(teacher.teacherAbout)!''}</p>
                             </div>
                             <div style="padding-top: 22px;">
                                 <h4 class="freeListen"><a href="../user/94.html">免费试听老师课程</a> </h4>
