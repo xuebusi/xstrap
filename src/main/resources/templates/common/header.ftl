@@ -50,7 +50,7 @@
             <div class="M_header-back js-back">
                 <a><i class="es-icon es-icon-chevronleft"></i></a>
             </div>
-            <a href="http://www.xuebusi.com/" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <img src="/images/19876785c34d6a348876.png">
             </a>
         </div>
