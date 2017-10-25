@@ -178,15 +178,16 @@ public class UserController {
      * @param map
      * @return
      */
-    @PostMapping(value = "/settings/save")
+    @PostMapping(value = "/settings")
     public ModelAndView saveSettings(UserFormVo userFormVo, HttpServletRequest request, Map<String, Object> map) {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         if (user != null) {
             User userFromDb = userService.findOne(user.getId());
             BeanUtils.copyProperties(userFormVo, userFromDb);
-            userService.save(userFromDb);
+            User newUser = userService.save(userFromDb);
             map.put("successMsg", "基础信息保存成功");
+            map.put("user", newUser);
             return new ModelAndView("/user/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));

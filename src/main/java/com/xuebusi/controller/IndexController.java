@@ -28,80 +28,32 @@ import java.util.Map;
 public class IndexController {
 
     @Autowired
-    private CourseMapper courseMapper;
-
-    @Autowired
     private CourseService courseService;
 
-    @GetMapping
-    public String list() {
-        return "redirect:/all/all/list";
+    /**
+     * 首页
+     * @return
+     */
+    @GetMapping(value = {"", "/index", "/list", "/all", "/all/list"})
+    public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("forward:/all/all/list");
+        return modelAndView;
     }
 
     /**
      * 课程列表
-     * @param page 第几页, 从1页开始
-     * @param size 一页有多少条数据
-     * @return
-     */
-    @GetMapping("/list")
-    public ModelAndView list(
-            @RequestParam(value = "page", defaultValue = "1") Integer page,
-            @RequestParam(value = "size", defaultValue = "12") Integer size,
-            Map<String, Object> map) {
-        size = size > 12 ? 12 : size;
-        List<Sort.Order> orders= new ArrayList<>();
-        orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
-        PageRequest request = new PageRequest(page - 1, size, new Sort(orders));
-        Page<Course> coursePage = courseService.findList(request);
-        map.put("coursePage", coursePage);
-        map.put("currentPage", page);
-        map.put("size", size);
-        map.put("category", "all");
-        return new ModelAndView("/course/list", map);
-    }
-
-    /**
-     * 课程列表分类查询
-     * @param page 第几页, 从1页开始
-     * @param size 一页有多少条数据
-     * @return
-     */
-    @GetMapping("/{category}/list")
-    public ModelAndView list(
-            @PathVariable(value = "category") String category,
-            @RequestParam(value = "page", defaultValue = "1") Integer page,
-            @RequestParam(value = "size", defaultValue = "12") Integer size,
-            Map<String, Object> map) {
-        size = size > 12 ? 12 : size;
-        category = category == null ? "all" : category;
-        List<Sort.Order> orders= new ArrayList<>();
-        orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
-        PageRequest request = new PageRequest(page - 1, size, new Sort(orders));
-
-        Page<Course> coursePage;
-        if ("all".endsWith(category)) {
-            coursePage = courseService.findList(request);
-        } else {
-            coursePage = courseService.findByCourseCategory(category, request);
-        }
-        map.put("coursePage", coursePage);
-        map.put("currentPage", page);
-        map.put("size", size);
-        map.put("category", category);
-        return new ModelAndView("/course/list", map);
-    }
-
-    /**
-     * 课程列表分类查询
-     * @param page 第几页, 从1页开始
-     * @param size 一页有多少条数据
+     * @param navigation 导航菜单
+     * @param category 二级分类
+     * @param page 页码
+     * @param size 条数
+     * @param map
      * @return
      */
     @GetMapping("/{navigation}/{category}/list")
     public ModelAndView list(
-            @PathVariable(value = "navigation",required = false) String navigation,
-            @PathVariable(value = "category",required = false) String category,
+            @PathVariable(value = "navigation") String navigation,
+            @PathVariable(value = "category") String category,
             @RequestParam(value = "page", defaultValue = "1") Integer page,
             @RequestParam(value = "size", defaultValue = "12") Integer size,
             Map<String, Object> map) {
@@ -123,12 +75,12 @@ public class IndexController {
 
     /**
      * 单页跳转
+     * @param tag
      * @param map
      * @return
      */
     @GetMapping(value = "/page/{tag}")
     public ModelAndView page(@PathVariable(value = "tag") String tag, Map<String, Object> map) {
-
         map.put("tag", tag);
         return new ModelAndView("/help/page", map);
     }

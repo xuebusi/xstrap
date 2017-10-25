@@ -1,11 +1,18 @@
 <div class="es-filter">
     <ul class="nav nav-sort clearfix">
-    <#if category == 'all'>
-        <li><a class="active" href="/${navigation}/all/list">全部</a></li>
+    <#if navigation == 'all'>
+        <#if category == 'all'>
+            <li><a class="active" href="/">全部</a></li>
+        <#else>
+            <li><a class="" href="/">全部</a></li>
+        </#if>
     <#else>
-        <li><a class="" href="/${navigation}/all/list">全部</a></li>
+        <#if category == 'all'>
+            <li><a class="active" href="/${navigation}/all/list">全部</a></li>
+        <#else>
+            <li><a class="" href="/${navigation}/all/list">全部</a></li>
+        </#if>
     </#if>
-
     <#if category == 'systematic'>
         <li><a class="active" href="/${navigation}/systematic/list">系统课</a></li>
     <#else>

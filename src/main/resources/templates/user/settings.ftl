@@ -92,7 +92,7 @@
                     <div class="panel-heading">基础信息</div>
                     <div class="panel-body">
 
-                        <form id="user-profile-form" class="form-horizontal" method="post" action="/settings/save">
+                        <form id="user-profile-form" class="form-horizontal" method="post" action="/settings">
                             <#if successMsg?exists >
                                 <div class="alert alert-success">${successMsg}</div>
                             </#if>

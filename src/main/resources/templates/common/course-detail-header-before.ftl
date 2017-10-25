@@ -1,11 +1,6 @@
 <section class="course-detail-header before">
     <div class="container">
-        <ol class="breadcrumb breadcrumb-o">
-            <li><a href="/all/all/list">首页</a> </li>
-            <li><a href="/${course.courseNavigation}/all/list">${courseNavigationStr}</a> </li>
-            <li><a href="/${course.courseNavigation}/${course.courseCategory}/list">${courseCategoryStr}</a> </li>
-            <li class="active hidden-xs hidden-sm">${course.courseTitle}</li>
-        </ol>
+        <#include "../common/lesson-path.ftl">
         <div class="es-section clearfix ">
             <!--左侧图片-->
             <div class="course-img col-lg-offset-1" style="">
