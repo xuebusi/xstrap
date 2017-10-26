@@ -4,9 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
-import com.xuebusi.repository.LoginInfoRepository;
+import com.xuebusi.repository.LoginRepository;
 import com.xuebusi.repository.UserRepository;
-import com.xuebusi.service.LoginInfoService;
+import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,22 +17,22 @@ import java.util.List;
  * Created by SYJ on 2017/10/15.
  */
 @Service
-public class LoginInfoServiceImpl implements LoginInfoService {
+public class LoginServiceImpl implements LoginService {
 
     @Autowired
-    private LoginInfoRepository loginInfoRepository;
+    private LoginRepository loginRepository;
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public LoginInfo findOne(Integer id) {
-        return loginInfoRepository.findOne(id);
+        return loginRepository.findOne(id);
     }
 
     @Override
     public List<LoginInfo> findAll() {
-        return loginInfoRepository.findAll();
+        return loginRepository.findAll();
     }
 
     /**
@@ -48,7 +48,7 @@ public class LoginInfoServiceImpl implements LoginInfoService {
             System.out.println(">>>>>> 读取缓存用户数据: " + JSON.toJSONString(loginInfo));
             return loginInfo;
         }
-        return loginInfoRepository.findByUsername(username);
+        return loginRepository.findByUsername(username);
     }
 
     /**
@@ -58,7 +58,7 @@ public class LoginInfoServiceImpl implements LoginInfoService {
      */
     @Override
     public LoginInfo save(LoginInfo loginInfo) {
-        LoginInfo newLoginInfo = loginInfoRepository.save(loginInfo);
+        LoginInfo newLoginInfo = loginRepository.save(loginInfo);
         //同时生成一条用户基本信息
         User user = new User();
         user.setUsername(loginInfo.getUsername());

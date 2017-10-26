@@ -3,7 +3,7 @@ package com.xuebusi.common.listener;
 import com.alibaba.fastjson.JSON;
 import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.LoginInfo;
-import com.xuebusi.service.LoginInfoService;
+import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,13 +19,13 @@ import java.util.List;
 public class InitDataListener implements InitializingBean, ServletContextAware {
 
     @Autowired
-    private LoginInfoService loginInfoService;
+    private LoginService loginService;
 
     private ServletContext servletContext;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        List<LoginInfo> loginInfoList = loginInfoService.findAll();
+        List<LoginInfo> loginInfoList = loginService.findAll();
         if (loginInfoList != null && loginInfoList.size() > 0) {
             for (LoginInfo loginInfo : loginInfoList) {
                 BaseDataCacheUtils.getUserCacheMap().put(loginInfo.getUsername(), loginInfo);

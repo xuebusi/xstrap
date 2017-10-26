@@ -8,7 +8,7 @@ import java.util.List;
  * 用户
  * Created by SYJ on 2017/10/15.
  */
-public interface LoginInfoService {
+public interface LoginService {
 
     /**
      * 根据id查询用户

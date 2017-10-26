@@ -3,7 +3,7 @@ package com.xuebusi.controller;
 import com.xuebusi.common.utils.MD5Utils;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
-import com.xuebusi.service.LoginInfoService;
+import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserFormVo;
 import org.apache.commons.lang3.StringUtils;
@@ -25,10 +25,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping
-public class LoginInfoController extends BaseController {
+public class LoginController extends BaseController {
 
     @Autowired
-    private LoginInfoService loginInfoService;
+    private LoginService loginService;
 
     @Autowired
     private UserService userService;
@@ -122,7 +122,7 @@ public class LoginInfoController extends BaseController {
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
 
-        LoginInfo loginInfo = loginInfoService.findByUsername(username);
+        LoginInfo loginInfo = loginService.findByUsername(username);
 
         if (loginInfo != null && loginInfo.getPassword().equals(MD5Utils.md5(password))) {
             User user = userService.findByUsername(username);
@@ -153,7 +153,7 @@ public class LoginInfoController extends BaseController {
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
 
-        if (loginInfoService.findByUsername(username) != null) {
+        if (loginService.findByUsername(username) != null) {
             map.put("errMsg", "用户名已存在，请重新输入！");
             return new ModelAndView("/user/register", map);
         }
@@ -162,7 +162,7 @@ public class LoginInfoController extends BaseController {
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setUsername(username);
         loginInfo.setPassword(MD5Utils.md5(password));
-        loginInfoService.save(loginInfo);
+        loginService.save(loginInfo);
 
         map.put("successMsg", "注册成功，请登录！");
         return new ModelAndView("/user/login", map);
