@@ -1,6 +1,7 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.CommonUtils;
+import com.xuebusi.dto.LoginUserInfo;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -27,6 +28,16 @@ public class BaseController {
     public String getIpAddr(){
         HttpServletRequest request = getHttpServletRequest();
         return CommonUtils.getIpAddr(request);
+    }
+
+    /**
+     * 获取当前登录用户信息
+     * @return
+     */
+    public LoginUserInfo getLoginUserInfo(){
+        HttpServletRequest request = getHttpServletRequest();
+        LoginUserInfo loginUserInfo = (LoginUserInfo) request.getSession().getAttribute("user");
+        return loginUserInfo != null ? loginUserInfo : null;
     }
 
 }

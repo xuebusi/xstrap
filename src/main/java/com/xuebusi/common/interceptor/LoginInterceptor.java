@@ -1,6 +1,6 @@
 package com.xuebusi.common.interceptor;
 
-import com.xuebusi.entity.User;
+import com.xuebusi.dto.LoginUserInfo;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,8 +28,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         System.out.println(">>>LoginInterceptor>>>>>>>在请求处理之前进行调用");
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
+        LoginUserInfo loginUserInfo = (LoginUserInfo) session.getAttribute("user");
+        if (loginUserInfo == null) {
             response.sendRedirect("/login");
             return false;
         }

@@ -1,7 +1,7 @@
 package com.xuebusi.controller;
 
+import com.xuebusi.dto.LoginUserInfo;
 import com.xuebusi.entity.Course;
-import com.xuebusi.entity.User;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -35,10 +34,10 @@ public class MyController {
      */
     @RequestMapping(value = {"", "/courses/learning"})
     public ModelAndView toMyCoursesLearning(HttpSession session, Map<String, Object> map){
-        User user = (User)session.getAttribute("user");
-        if (user != null) {
+        LoginUserInfo loginUserInfo = (LoginUserInfo)session.getAttribute("user");
+        if (loginUserInfo != null) {
             //User userFromDb = userService.findOne(user.getId());
-            String courseIds = user.getCourseIds();
+            String courseIds = loginUserInfo.getCourseIds();
             String[] courseIdArr = courseIds.split(",");
             List<Integer> idList = new ArrayList<>();
             for (String courseId : courseIdArr) {

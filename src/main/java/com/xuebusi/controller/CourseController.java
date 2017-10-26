@@ -1,5 +1,6 @@
 package com.xuebusi.controller;
 
+import com.xuebusi.dto.LoginUserInfo;
 import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
@@ -8,14 +9,10 @@ import com.xuebusi.service.CourseService;
 import com.xuebusi.service.LessonService;
 import com.xuebusi.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -102,9 +99,9 @@ public class CourseController {
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
 
-        User user = (User)session.getAttribute("user");
-        if (user != null) {
-            String courseIds = user.getCourseIds();
+        LoginUserInfo loginUserInfo = (LoginUserInfo)session.getAttribute("user");
+        if (loginUserInfo != null) {
+            String courseIds = loginUserInfo.getCourseIds();
             List<String> idList = Arrays.asList(courseIds.split(","));
             if (idList.contains(String.valueOf(courseId))) {
                 return new ModelAndView("/my/courses/mylesson", map);
