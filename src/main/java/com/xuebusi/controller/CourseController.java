@@ -49,6 +49,9 @@ public class CourseController extends BaseController{
      */
     @GetMapping(value = "/{id}")
     public ModelAndView detail(@PathVariable("id") Integer id, Map<String, Object> map) {
+
+
+
         Course course = courseService.findOne(id);
         CourseDetail courseDetail = null;
         Teacher teacher = null;
@@ -67,6 +70,20 @@ public class CourseController extends BaseController{
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
+
+        //当前用户是否已购买该课程
+        User userInfo = this.getUserInfo();
+        if (userInfo != null) {
+            if (StringUtils.isNoneEmpty(userInfo.getCourseIds())) {
+                String[] courseArr = userInfo.getCourseIds().split(",");
+                for (String courseId : courseArr) {
+                    if (courseId.equals(String.valueOf(id))){
+                        return new ModelAndView("/my/courses/mylesson", map);
+                    }
+                }
+            }
+        }
+
         return new ModelAndView("/course/detail", map);
     }
 

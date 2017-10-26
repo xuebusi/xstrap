@@ -121,8 +121,9 @@ public class LoginInfoController extends BaseController {
         if (this.getUserInfo() != null){
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
-        //根据用户名查询
+
         LoginInfo loginInfo = loginInfoService.findByUsername(username);
+
         if (loginInfo != null && loginInfo.getPassword().equals(MD5Utils.md5(password))) {
             User user = userService.findByUsername(username);
             //登录后将用户信息放入Session

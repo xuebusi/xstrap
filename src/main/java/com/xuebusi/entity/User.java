@@ -2,7 +2,6 @@ package com.xuebusi.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 用户基础信息表
@@ -35,7 +34,6 @@ public class User {
     private String isQqPublic;//QQ是否公开
     private String position;//职位
     private String city;//所在城市
-    @Column(name = "course_ids")
     private String courseIds;//所学课程id列表(逗号分隔)
 
     public Integer getId() {

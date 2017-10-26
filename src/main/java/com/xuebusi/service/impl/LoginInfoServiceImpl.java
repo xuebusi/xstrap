@@ -1,5 +1,7 @@
 package com.xuebusi.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.repository.LoginInfoRepository;
@@ -40,6 +42,12 @@ public class LoginInfoServiceImpl implements LoginInfoService {
      */
     @Override
     public LoginInfo findByUsername(String username) {
+        //先查缓存
+        LoginInfo loginInfo = BaseDataCacheUtils.getUserCacheMap().get(username);
+        if (loginInfo != null) {
+            System.out.println(">>>>>> 读取缓存用户数据: " + JSON.toJSONString(loginInfo));
+            return loginInfo;
+        }
         return loginInfoRepository.findByUsername(username);
     }
 
@@ -55,6 +63,10 @@ public class LoginInfoServiceImpl implements LoginInfoService {
         User user = new User();
         user.setUsername(loginInfo.getUsername());
         userRepository.save(user);
+
+        //更新缓存
+        BaseDataCacheUtils.getUserCacheMap().put(loginInfo.getUsername(), newLoginInfo);
+        System.out.println(">>>>>> 更新缓存: " + JSON.toJSONString(newLoginInfo));
         return newLoginInfo;
     }
 }

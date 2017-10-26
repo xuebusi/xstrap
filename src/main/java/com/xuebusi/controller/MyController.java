@@ -3,7 +3,7 @@ package com.xuebusi.controller;
 import com.xuebusi.entity.Course;
 import com.xuebusi.entity.User;
 import com.xuebusi.service.CourseService;
-import com.xuebusi.service.LoginInfoService;
+import com.xuebusi.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +24,7 @@ import java.util.Map;
 public class MyController extends BaseController {
 
     @Autowired
-    private LoginInfoService loginInfoService;
+    private UserService userService;
 
     @Autowired
     private CourseService courseService;
@@ -39,6 +39,12 @@ public class MyController extends BaseController {
         User user = this.getUserInfo();
         if (user != null) {
             String courseIds = user.getCourseIds();
+            if (StringUtils.isEmpty(courseIds)) {
+                User userFromDb = userService.findOne(user.getId());
+                if (userFromDb != null) {
+                    courseIds = userFromDb.getCourseIds();
+                }
+            }
             List<Integer> idList = new ArrayList<>();
             List<Course> courseList = new ArrayList<>();
             if (StringUtils.isNotEmpty(courseIds)) {
