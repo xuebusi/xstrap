@@ -96,19 +96,19 @@
                             <#if successMsg?exists >
                                 <div class="alert alert-success">${successMsg}</div>
                             </#if>
-                            <input type="hidden" id="profile_id" name="id"  value="${user.id}">
+                            <input type="hidden" id="profile_id" name="id"  value="${(user.id)!}">
                             <div class="form-group">
                                 <label class="col-md-2 control-label" >用户名</label>
                                 <div class="col-md-7 controls">
-                                    <input type="hidden" id="profile_username" name="username" value="${(user.username)!""}">
-                                    <div class="control-text">${(user.username)!""} </div>
+                                    <input type="hidden" id="profile_username" name="username" value="${(user.username)!}">
+                                    <div class="control-text">${(user.username)!} </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="profile_truename">真实姓名</label>
                                 <div class="col-md-7 controls radios">
-                                    <input type="text" id="profile_truename" name="truename" class="form-control" data-widget-cid="widget-1" data-explain="" value="${user.truename!""}">
+                                    <input type="text" id="profile_truename" name="truename" class="form-control" data-widget-cid="widget-1" data-explain="" value="${(user.truename)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="profile_idcard">身份证号码</label>
                                 <div class="col-md-7 controls radios">
-                                    <input type="text" id="profile_idcard" name="idcard" class="form-control" value="${user.idcard!""}">
+                                    <input type="text" id="profile_idcard" name="idcard" class="form-control" value="${(user.idcard)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="form-group">
                                 <label for="profile_mobile" class="col-md-2 control-label">手机号码</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_mobile" name="mobile" class="form-control" data-widget-cid="widget-5" data-explain="" value="${user.mobile!""}">
+                                    <input type="text" id="profile_mobile" name="mobile" class="form-control" data-widget-cid="widget-5" data-explain="" value="${(user.mobile)!}">
 
                                     <div class="help-block" style="display:none"></div>
                                 </div>
@@ -152,7 +152,7 @@
                             <div class="form-group form-forIam-group form-notStudent-group">
                                 <label class="col-md-2 control-label">公司</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_company" name="company" class="form-control" value="${user.company!""}">
+                                    <input type="text" id="profile_company" name="company" class="form-control" value="${(user.company)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                             <div class="form-group form-forIam-group form-notStudent-group">
                                 <label class="col-md-2 control-label">职业</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_job" name="job" class="form-control" value="${user.job!""}">
+                                    <input type="text" id="profile_job" name="job" class="form-control" value="${(user.job)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">头衔</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_title" name="title" class="form-control" value="${user.title!""}">
+                                    <input type="text" id="profile_title" name="title" class="form-control" value="${(user.title)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">个人签名</label>
                                 <div class="col-md-7 controls">
-                                    <textarea type="text" rows="4" maxlength="80" id="profile_signature" name="signature" class="form-control">${user.signature!""}</textarea>
+                                    <textarea type="text" rows="4" maxlength="80" id="profile_signature" name="signature" class="form-control">${(user.signature)!}</textarea>
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -184,14 +184,14 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">自我介绍</label>
                                 <div class="col-md-7 controls">
-                                    <textarea name="about" rows="10" id="profile_about" class="form-control" data-image-upload-url="/editor/upload?token=NjA5OTJ8dXNlcnxpbWFnZXwxNTA4MDA5MDQ3fDMzMTdkYjA1OGM3NTQwNTI4MzViMzEwNTU4ZDU0Zjcz">${user.about!""}</textarea>
+                                    <textarea name="about" rows="10" id="profile_about" class="form-control" data-image-upload-url="/editor/upload?token=NjA5OTJ8dXNlcnxpbWFnZXwxNTA4MDA5MDQ3fDMzMTdkYjA1OGM3NTQwNTI4MzViMzEwNTU4ZDU0Zjcz">${(user.about)!""}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label">个人空间</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_site" name="site" class="form-control" data-widget-cid="widget-4" data-explain="" value="${user.site!""}">
+                                    <input type="text" id="profile_site" name="site" class="form-control" data-widget-cid="widget-4" data-explain="" value="${(user.site)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                                     <label for="weibo">微博</label>
                                 </div>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="weibo" name="weibo" class="form-control" data-widget-cid="widget-3" data-explain="" value="${user.weibo!""}">
+                                    <input type="text" id="weibo" name="weibo" class="form-control" data-widget-cid="widget-3" data-explain="" value="${(user.weibo)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                                 <div class="col-md-2 controls mts"><input type="checkbox" name="isWeiboPublic" />公开</div>
@@ -210,7 +210,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">微信</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_weixin" name="weixin" class="form-control" value="${user.weixin!""}">
+                                    <input type="text" id="profile_weixin" name="weixin" class="form-control" value="${(user.weixin)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                                 <div class="col-md-2 controls mts"><input type="checkbox" name="isWeixinPublic" />公开</div>
@@ -219,7 +219,7 @@
                             <div class="form-group">
                                 <label for="profile_qq" class="col-md-2 control-label">QQ</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="profile_qq" name="qq" class="form-control" data-widget-cid="widget-2" data-explain="" value="${user.qq!""}">
+                                    <input type="text" id="profile_qq" name="qq" class="form-control" data-widget-cid="widget-2" data-explain="" value="${(user.qq)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                                 <div class="col-md-2 controls mts"><input type="checkbox" name="isQqPublic" checked="checked" />公开</div>
@@ -231,14 +231,14 @@
                             <div class="form-group">
                                 <label for="varcharField1" class="col-md-2 control-label">职位</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="varcharField1" name="position" class="form-control" value="${user.position!""}">
+                                    <input type="text" id="varcharField1" name="position" class="form-control" value="${(user.position)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="varcharField2" class="col-md-2 control-label">所在城市</label>
                                 <div class="col-md-7 controls">
-                                    <input type="text" id="varcharField2" name="city" class="form-control" value="${user.city!""}">
+                                    <input type="text" id="varcharField2" name="city" class="form-control" value="${(user.city)!}">
                                     <div class="help-block" style="display:none;"></div>
                                 </div>
                             </div>

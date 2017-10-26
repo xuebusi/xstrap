@@ -107,7 +107,7 @@
                             <img class="avatar-xs" src="/images/0548491aa7e5403534.jpg">
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="presentation" class="dropdown-header">${user.username}</li>
+                            <li role="presentation" class="dropdown-header">${(user.username)!}</li>
                             <li><a href="/settings/"><i class="es-icon es-icon-setting"></i>个人设置</a>
                             </li>
                             <li class="hidden-lg user-nav-li-my">

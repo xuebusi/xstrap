@@ -1,16 +1,18 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.dto.LoginUserInfo;
 import com.xuebusi.entity.Course;
+import com.xuebusi.entity.User;
 import com.xuebusi.service.CourseService;
-import com.xuebusi.service.UserService;
+import com.xuebusi.service.LoginInfoService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -19,10 +21,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/my")
-public class MyController {
+public class MyController extends BaseController {
 
     @Autowired
-    private UserService userService;
+    private LoginInfoService loginInfoService;
 
     @Autowired
     private CourseService courseService;
@@ -33,17 +35,23 @@ public class MyController {
      * @return
      */
     @RequestMapping(value = {"", "/courses/learning"})
-    public ModelAndView toMyCoursesLearning(HttpSession session, Map<String, Object> map){
-        LoginUserInfo loginUserInfo = (LoginUserInfo)session.getAttribute("user");
-        if (loginUserInfo != null) {
-            //User userFromDb = userService.findOne(user.getId());
-            String courseIds = loginUserInfo.getCourseIds();
-            String[] courseIdArr = courseIds.split(",");
+    public ModelAndView toMyCoursesLearning(HttpServletRequest request, Map<String, Object> map){
+        User user = this.getUserInfo();
+        if (user != null) {
+            String courseIds = user.getCourseIds();
             List<Integer> idList = new ArrayList<>();
-            for (String courseId : courseIdArr) {
-                idList.add(Integer.parseInt(courseId));
+            List<Course> courseList = new ArrayList<>();
+            if (StringUtils.isNotEmpty(courseIds)) {
+                List<String> courseIdList = Arrays.asList(courseIds.split(","));
+                if (courseIdList != null && courseIdList.size() > 0) {
+                    for (String courseId : courseIdList) {
+                        idList.add(Integer.parseInt(courseId));
+                    }
+                }
             }
-            List<Course> courseList = courseService.findByIdIn(idList);
+            if (idList.size() > 0) {
+                courseList = courseService.findByIdIn(idList);
+            }
             map.put("courseList", courseList);
             return new ModelAndView("/my/courses/learning", map);
         }

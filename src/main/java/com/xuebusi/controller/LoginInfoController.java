@@ -1,10 +1,12 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.MD5Utils;
-import com.xuebusi.dto.LoginUserInfo;
+import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
+import com.xuebusi.service.LoginInfoService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserFormVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -24,7 +25,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping
-public class UserController extends BaseController {
+public class LoginInfoController extends BaseController {
+
+    @Autowired
+    private LoginInfoService loginInfoService;
 
     @Autowired
     private UserService userService;
@@ -36,8 +40,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/register")
     public ModelAndView register(HttpServletRequest request, Map<String, Object> map) {
-        LoginUserInfo loginUserInfo = getLoginUserInfo();
-        if (loginUserInfo != null) {
+        if (this.getUserInfo() != null) {
             return new ModelAndView(new RedirectView("/my/courses/learning"));
         }
         return new ModelAndView("/user/register", map);
@@ -50,8 +53,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/login")
     public ModelAndView login(HttpServletRequest request, Map<String, Object> map) {
-        LoginUserInfo loginUserInfo = getLoginUserInfo();
-        if (loginUserInfo != null) {
+        if (this.getUserInfo() != null) {
             return new ModelAndView(new RedirectView("/my/courses/learning"));
         }
         return new ModelAndView("/user/login", map);
@@ -85,9 +87,8 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/logout")
     public ModelAndView logout(HttpServletRequest request, Map<String, Object> map) {
-        HttpSession session = request.getSession();
-        if (session != null) {
-            session.removeAttribute("user");
+        if (request.getSession() != null) {
+            request.getSession().removeAttribute("user");
         }
         return new ModelAndView("/user/login", map);
     }
@@ -117,17 +118,16 @@ public class UserController extends BaseController {
     public ModelAndView login(@RequestParam("username")String username,
                              @RequestParam("password")String password,
                              HttpServletRequest request, Map<String, Object> map) {
-        if (getLoginUserInfo() != null){
+        if (this.getUserInfo() != null){
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
-        //根据用户名查询用户
-        User user = userService.findByUsername(username);
-        if (user != null && user.getPassword().equals(MD5Utils.md5(password))) {
-            LoginUserInfo loginUserInfo = new LoginUserInfo();
-            BeanUtils.copyProperties(user, loginUserInfo);
+        //根据用户名查询
+        LoginInfo loginInfo = loginInfoService.findByUsername(username);
+        if (loginInfo != null && loginInfo.getPassword().equals(MD5Utils.md5(password))) {
+            User user = userService.findByUsername(username);
             //登录后将用户信息放入Session
-            request.getSession().setAttribute("user", loginUserInfo);
-            map.put("user", loginUserInfo);
+            request.getSession().setAttribute("user", user);
+            map.put("user", user);
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
         map.put("errMsg", "用户名或密码不正确");
@@ -147,21 +147,24 @@ public class UserController extends BaseController {
                                    @RequestParam("password")String password,
                                    HttpServletRequest request,
                                    Map<String, Object> map) {
-        LoginUserInfo loginUserInfo = getLoginUserInfo();
-        if (loginUserInfo != null) {
+
+        if (this.getUserInfo() != null) {
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
-        User userFromDb = userService.findByUsername(username);
-        if (userFromDb == null) {
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(MD5Utils.md5(password));
-            userService.save(user);
-            map.put("successMsg", "注册成功，请登录！");
-            return new ModelAndView("/user/login", map);
+
+        if (loginInfoService.findByUsername(username) != null) {
+            map.put("errMsg", "用户名已存在，请重新输入！");
+            return new ModelAndView("/user/register", map);
         }
-        map.put("errMsg", "用户名已存在，请重新输入！");
-        return new ModelAndView("/user/register", map);
+
+        //保存注册用户
+        LoginInfo loginInfo = new LoginInfo();
+        loginInfo.setUsername(username);
+        loginInfo.setPassword(MD5Utils.md5(password));
+        loginInfoService.save(loginInfo);
+
+        map.put("successMsg", "注册成功，请登录！");
+        return new ModelAndView("/user/login", map);
     }
 
     /**
@@ -171,9 +174,11 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/settings")
     public ModelAndView settings(HttpServletRequest request, Map<String, Object> map) {
-        LoginUserInfo loginUserInfo = getLoginUserInfo();
-        if (loginUserInfo != null) {
-            map.put("user", loginUserInfo);
+        if (this.getUserInfo() != null) {
+            //显示最新基础信息
+            User user = userService.findByUsername(this.getUserInfo().getUsername());
+            request.getSession().setAttribute("user", user);
+            map.put("user", user);
             return new ModelAndView("/user/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));
@@ -186,14 +191,18 @@ public class UserController extends BaseController {
      */
     @PostMapping(value = "/settings")
     public ModelAndView saveSettings(UserFormVo userFormVo, HttpServletRequest request, Map<String, Object> map) {
-        LoginUserInfo loginUserInfo = getLoginUserInfo();
-        if (loginUserInfo != null) {
-            User user = new User();
+        if (this.getUserInfo() != null && this.getUserInfo().getUsername().equals(userFormVo.getUsername())) {
+            User user = userService.findByUsername(userFormVo.getUsername());
+            if (user == null) {
+                user = new User();
+            }
+            if (StringUtils.isEmpty(userFormVo.getUsername())) {
+                user.setUsername(this.getUserInfo().getUsername());
+            }
             BeanUtils.copyProperties(userFormVo, user);
-            User newUser = userService.save(user);
-            BeanUtils.copyProperties(newUser, loginUserInfo);
+            User userFromDb = userService.save(user);
             map.put("successMsg", "基础信息保存成功");
-            map.put("user", loginUserInfo);
+            map.put("user", userFromDb);//回显最新数据
             return new ModelAndView("/user/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));

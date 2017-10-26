@@ -1,6 +1,5 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.dto.LoginUserInfo;
 import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
@@ -8,6 +7,7 @@ import com.xuebusi.service.CourseDetailService;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.service.LessonService;
 import com.xuebusi.service.TeacherService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ import java.util.*;
  */
 @Controller
 @RequestMapping(value="/course")
-public class CourseController {
+public class CourseController extends BaseController{
 
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -99,14 +99,16 @@ public class CourseController {
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
 
-        LoginUserInfo loginUserInfo = (LoginUserInfo)session.getAttribute("user");
-        if (loginUserInfo != null) {
-            String courseIds = loginUserInfo.getCourseIds();
-            List<String> idList = Arrays.asList(courseIds.split(","));
-            if (idList.contains(String.valueOf(courseId))) {
-                return new ModelAndView("/my/courses/mylesson", map);
+        if (this.getUserInfo() != null) {
+            String courseIds = this.getUserInfo().getCourseIds();
+            if (StringUtils.isNotEmpty(courseIds)) {
+                List<String> idList = Arrays.asList(courseIds.split(","));
+                if (idList != null && idList.size() > 0 && idList.contains(String.valueOf(courseId))) {
+                    return new ModelAndView("/my/courses/mylesson", map);
+                }
             }
         }
+
         return new ModelAndView("/course/lesson", map);
     }
 

@@ -1,10 +1,11 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.CommonUtils;
-import com.xuebusi.dto.LoginUserInfo;
+import com.xuebusi.entity.User;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -22,11 +23,20 @@ public class BaseController {
     }
 
     /**
+     * 获取ServletContext
+     * @return
+     */
+    public ServletContext getServletContext(){
+        HttpServletRequest request = this.getHttpServletRequest();
+        return request.getServletContext();
+    }
+
+    /**
      * 获取IP地址
      * @return
      */
     public String getIpAddr(){
-        HttpServletRequest request = getHttpServletRequest();
+        HttpServletRequest request = this.getHttpServletRequest();
         return CommonUtils.getIpAddr(request);
     }
 
@@ -34,10 +44,10 @@ public class BaseController {
      * 获取当前登录用户信息
      * @return
      */
-    public LoginUserInfo getLoginUserInfo(){
-        HttpServletRequest request = getHttpServletRequest();
-        LoginUserInfo loginUserInfo = (LoginUserInfo) request.getSession().getAttribute("user");
-        return loginUserInfo != null ? loginUserInfo : null;
+    public User getUserInfo(){
+        HttpServletRequest request = this.getHttpServletRequest();
+        User user = (User) request.getSession().getAttribute("user");
+        return user != null ? user : null;
     }
 
 }

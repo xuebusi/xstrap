@@ -4,12 +4,12 @@ import com.xuebusi.entity.User;
 import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
- * 用户
+ * 用户基础信息
  * Created by SYJ on 2017/10/15.
  */
 @Service
@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findOne(Integer id) {
         return userRepository.findOne(id);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     /**

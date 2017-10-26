@@ -1,18 +1,15 @@
 package com.xuebusi.common.interceptor;
 
-import com.xuebusi.dto.LoginUserInfo;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * 登录拦截器
+ * 拦截器
  * Created by SYJ on 2017/10/26.
  */
-public class LoginInterceptor implements HandlerInterceptor {
+public class CommonIntercepter implements HandlerInterceptor {
 
     /**
      * 前置方法（在Controller的方法执行之前调用）
@@ -25,11 +22,9 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
-        System.out.println(">>>LoginInterceptor>>>>>>>在请求处理之前进行调用");
+        //System.out.println(">>>CommonIntercepter>>>>>>>在请求处理之前进行调用");
 
-        HttpSession session = request.getSession();
-        LoginUserInfo loginUserInfo = (LoginUserInfo) session.getAttribute("user");
-        if (loginUserInfo == null) {
+        if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return false;
         }

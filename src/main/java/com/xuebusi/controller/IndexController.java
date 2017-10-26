@@ -25,7 +25,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping
-public class IndexController {
+public class IndexController extends BaseController {
 
     @Autowired
     private CourseService courseService;

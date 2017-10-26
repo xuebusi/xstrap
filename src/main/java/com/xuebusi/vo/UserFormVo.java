@@ -7,7 +7,7 @@ package com.xuebusi.vo;
 public class UserFormVo {
 
     private Integer id;
-    private String rememberme;//记住我
+    private String username;//用户名
     private String truename;//真实姓名
     private String gender;//性别
     private String idcard;//身份证号码
@@ -35,12 +35,12 @@ public class UserFormVo {
         this.id = id;
     }
 
-    public String getRememberme() {
-        return rememberme;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRememberme(String rememberme) {
-        this.rememberme = rememberme;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTruename() {
