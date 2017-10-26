@@ -34,7 +34,12 @@ public class UserController {
      * @return
      */
     @GetMapping(value = "/register")
-    public ModelAndView register(Map<String, Object> map) {
+    public ModelAndView register(HttpServletRequest request, Map<String, Object> map) {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            map.put("usre", user);
+            return new ModelAndView(new RedirectView("/"), map);
+        }
         return new ModelAndView("/user/register", map);
     }
 
@@ -44,7 +49,13 @@ public class UserController {
      * @return
      */
     @GetMapping(value = "/login")
-    public ModelAndView login(Map<String, Object> map) {
+    public ModelAndView login(HttpServletRequest request, Map<String, Object> map) {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            //map.put("usre", user);
+            //return new ModelAndView(new RedirectView("/"), map);
+            return new ModelAndView(new RedirectView("/my/courses/learning"));
+        }
         return new ModelAndView("/user/login", map);
     }
 
@@ -104,17 +115,17 @@ public class UserController {
      * @param password 密码
      * @return
      */
-    @PostMapping(value = "/login_check")
-    public ModelAndView loginCheck(@RequestParam("username")String username,
+    @PostMapping(value = "/login")
+    public ModelAndView login(@RequestParam("username")String username,
                              @RequestParam("password")String password,
-                             /*@RequestParam("rememberme")String rememberme,*/
-                                   HttpServletRequest request,
-                             Map<String, Object> map) {
+                             HttpServletRequest request, Map<String, Object> map) {
+        ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         if (user != null){
-            map.put("user", user);
-            return new ModelAndView("/user/settings", map);
+            //modelAndView.setViewName("forward:/my/courses/learning");
+            //return modelAndView;
+            return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
         User userFromDb = userService.findByUsername(username);
         if (userFromDb != null && userFromDb.getPassword().equals(MD5Utils.md5(password))) {
@@ -124,7 +135,9 @@ public class UserController {
             map.put("user", userFromDb);
             //return new ModelAndView("/user/login-loading", map);
             //return new ModelAndView("/user/settings", map);
-            return new ModelAndView(new RedirectView("/all/all/list"), map);
+            return new ModelAndView(new RedirectView("/my/courses/learning"), map);
+            //modelAndView.setViewName("forward:/my/courses/learning");
+            //return modelAndView;
         }
         map.put("errMsg", "用户名或密码不正确");
         return new ModelAndView("/user/login", map);

@@ -37,8 +37,8 @@ public class MyController {
     public ModelAndView toMyCoursesLearning(HttpSession session, Map<String, Object> map){
         User user = (User)session.getAttribute("user");
         if (user != null) {
-            User userFromDb = userService.findOne(user.getId());
-            String courseIds = userFromDb.getCourseIds();
+            //User userFromDb = userService.findOne(user.getId());
+            String courseIds = user.getCourseIds();
             String[] courseIdArr = courseIds.split(",");
             List<Integer> idList = new ArrayList<>();
             for (String courseId : courseIdArr) {

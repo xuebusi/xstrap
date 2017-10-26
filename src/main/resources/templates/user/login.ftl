@@ -64,7 +64,7 @@
 
             </div>
             <div class="login-main">
-                <form id="login-form" class="form-vertical" method="post" action="/login_check">
+                <form id="login-form" class="form-vertical" method="post" action="/login">
 
                     <#if successMsg?exists >
                         <div class="alert alert-success">${successMsg}</div>
