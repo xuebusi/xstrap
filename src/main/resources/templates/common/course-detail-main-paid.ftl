@@ -40,4 +40,5 @@
             </div>
         </div>
     </section>
+    <#include "../common/course-relevant.ftl">
 </div>
