@@ -695,7 +695,7 @@
       <workItem from="1509083732424" duration="660000" />
       <workItem from="1509085462191" duration="1227000" />
       <workItem from="1509108577041" duration="9627000" />
-      <workItem from="1509118275868" duration="1284000" />
+      <workItem from="1509118275868" duration="1367000" />
     </task>
     <task id="LOCAL-00001" summary="修改首页logo的url">
       <created>1508944329657</created>
@@ -805,11 +805,17 @@
       <option name="project" value="LOCAL" />
       <updated>1509119406895</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="添加项目描述">
+      <created>1509119565733</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1509119565733</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149472000" />
+    <option name="totallyTimeSpent" value="149555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
