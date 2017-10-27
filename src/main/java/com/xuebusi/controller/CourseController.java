@@ -50,8 +50,6 @@ public class CourseController extends BaseController{
     @GetMapping(value = "/{id}")
     public ModelAndView detail(@PathVariable("id") Integer id, Map<String, Object> map) {
 
-
-
         Course course = courseService.findOne(id);
         CourseDetail courseDetail = null;
         Teacher teacher = null;
