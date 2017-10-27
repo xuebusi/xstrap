@@ -63,7 +63,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), loginInfo);
             }
         }
-        logger.info("\n\n>>>>>> 登录用户信息缓存 >>>>>> ");
+        logger.info(">>>>>> 登录用户信息缓存 >>>>>>\n\n");
     }
 
     /**
@@ -76,7 +76,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getCourseCacheMap().put(String.valueOf(course.getId()), course);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课程基本信息 >>>>>> ");
+        logger.info(">>>>>> 缓存课程基本信息 >>>>>>\n\n");
     }
 
     /**
@@ -89,7 +89,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getCourseDetailCacheMap().put(String.valueOf(courseDetail.getId()), courseDetail);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课程详情信息 >>>>>> ");
+        logger.info(">>>>>> 缓存课程详情信息 >>>>>>\n\n");
     }
 
     /**
@@ -102,7 +102,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getLessonCacheMap().put(String.valueOf(lesson.getId()), lesson);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课时信息 >>>>>> ");
+        logger.info(">>>>>> 缓存课时信息 >>>>>>\n\n");
     }
 
     /**
@@ -115,7 +115,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
             }
         }
-        logger.info("\n\n>>>>>> 缓存讲师信息 >>>>>> ");
+        logger.info(">>>>>> 缓存讲师信息 >>>>>>\n\n");
     }
 
     /**
@@ -128,7 +128,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getUserCacheMap().put(user.getUsername(), user);
             }
         }
-        logger.info("\n\n>>>>>> 缓存用户基本信息 >>>>>> ");
+        logger.info(">>>>>> 缓存用户基本信息 >>>>>>\n\n");
     }
 
 }
