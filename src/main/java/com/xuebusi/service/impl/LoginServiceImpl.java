@@ -56,7 +56,6 @@ public class LoginServiceImpl implements LoginService {
         //先查缓存
         LoginInfo loginInfo = BaseDataCacheUtils.getLoginInfoCacheMap().get(username);
         if (loginInfo != null) {
-            System.out.println(">>>>>> 读取缓存用户数据: " + JSON.toJSONString(loginInfo));
             return loginInfo;
         }
         return loginRepository.findByUsername(username);
@@ -70,14 +69,13 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginInfo save(LoginInfo loginInfo) {
         LoginInfo newLoginInfo = loginRepository.save(loginInfo);
+        BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), newLoginInfo);
+
         //同时生成一条用户基本信息
         User user = new User();
         user.setUsername(loginInfo.getUsername());
-        userRepository.save(user);
-
-        //更新缓存
-        BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), newLoginInfo);
-        System.out.println(">>>>>> 更新缓存: " + JSON.toJSONString(newLoginInfo));
+        User newUser = userRepository.save(user);
+        BaseDataCacheUtils.getUserCacheMap().put(user.getUsername(), newUser);
         return newLoginInfo;
     }
 }
