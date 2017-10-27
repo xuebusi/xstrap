@@ -1,6 +1,5 @@
 package com.xuebusi.common.listener;
 
-import com.alibaba.fastjson.JSON;
 import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.*;
 import com.xuebusi.service.*;
