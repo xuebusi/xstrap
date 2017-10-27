@@ -104,7 +104,7 @@
         <div class="container">
             <div class="mts">课程内容版权均归
                 <a href="http://www.xuebusi.com/">
-                北京学布斯科技有限公司
+                北京XBS有限公司
                 </a>
                 所有
                 <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank">
