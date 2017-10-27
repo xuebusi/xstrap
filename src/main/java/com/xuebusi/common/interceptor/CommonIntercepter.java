@@ -40,7 +40,7 @@ public class CommonIntercepter implements HandlerInterceptor {
         }
         //日志拦截
         logger.info("{}-统一拦截请求日志: 请求url={}, 请求方式={}, 请求IP={}, 请求参数={}, Http请求头={}",
-                RequestUtils.getRequestId(), request.getRequestURL(), request.getMethod(), request.getRemoteAddr(),
+                RequestUtils.getRequestId(), request.getRequestURL(), request.getMethod(), CommonUtils.getIpAddr(request),
                 JSON.toJSONString(request.getParameterMap()), CommonUtils.getHttpHeader(request));
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");

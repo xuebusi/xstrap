@@ -61,6 +61,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User save(User user) {
-        return userRepository.save(user);
+        User newUser = userRepository.save(user);
+        BaseDataCacheUtils.getUserCacheMap().put(newUser.getUsername(), newUser);
+        return newUser;
     }
 }

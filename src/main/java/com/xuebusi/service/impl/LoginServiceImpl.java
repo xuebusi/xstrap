@@ -69,13 +69,13 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginInfo save(LoginInfo loginInfo) {
         LoginInfo newLoginInfo = loginRepository.save(loginInfo);
-        BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), newLoginInfo);
+        BaseDataCacheUtils.getLoginInfoCacheMap().put(newLoginInfo.getUsername(), newLoginInfo);
 
         //同时生成一条用户基本信息
         User user = new User();
         user.setUsername(loginInfo.getUsername());
         User newUser = userRepository.save(user);
-        BaseDataCacheUtils.getUserCacheMap().put(user.getUsername(), newUser);
+        BaseDataCacheUtils.getUserCacheMap().put(newUser.getUsername(), newUser);
         return newLoginInfo;
     }
 }
