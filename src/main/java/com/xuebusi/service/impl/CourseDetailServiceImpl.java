@@ -1,10 +1,13 @@
 package com.xuebusi.service.impl;
 
+import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.CourseDetail;
 import com.xuebusi.repository.CourseDetailRepository;
 import com.xuebusi.service.CourseDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 课程详情
@@ -23,6 +26,19 @@ public class CourseDetailServiceImpl implements CourseDetailService {
      */
     @Override
     public CourseDetail findOne(Integer courseId) {
+        CourseDetail courseDetail = BaseDataCacheUtils.getCourseDetailCacheMap().get(String.valueOf(courseId));
+        if (courseDetail != null) {
+            return courseDetail;
+        }
         return courseDetailRepository.findOne(courseId);
+    }
+
+    /**
+     * 查询所有课程详情
+     * @return
+     */
+    @Override
+    public List<CourseDetail> findAll() {
+        return courseDetailRepository.findAll();
     }
 }

@@ -20,6 +20,12 @@ public interface CourseService {
     Page<Course> findList(Pageable pageable);
 
     /**
+     * 查询所有课程
+     * @return
+     */
+    List<Course> findAll();
+
+    /**
      * 根据id查询课程详情
      * @param id
      * @return

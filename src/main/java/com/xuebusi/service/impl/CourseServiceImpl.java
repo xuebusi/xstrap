@@ -1,5 +1,6 @@
 package com.xuebusi.service.impl;
 
+import com.xuebusi.common.cache.BaseDataCacheUtils;
 import com.xuebusi.entity.Course;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
@@ -7,14 +8,12 @@ import com.xuebusi.repository.CourseRepository;
 import com.xuebusi.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
-import java.util.List;
+import java.util.*;
 
 /**
  * 课程
@@ -37,12 +36,29 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
+     * 查询所有课程
+     * @return
+     */
+    @Override
+    public List<Course> findAll() {
+        Collection<Course> courses = BaseDataCacheUtils.getCourseCacheMap().values();
+        if (courses != null && courses.size() > 0) {
+            return (List<Course>) courses;
+        }
+        return courseRepository.findAll();
+    }
+
+    /**
      * 根据id查询课程详情
      * @param id
      * @return
      */
     @Override
     public Course findOne(Integer id) {
+        Course course = BaseDataCacheUtils.getCourseCacheMap().get(String.valueOf(id));
+        if (course != null) {
+            return course;
+        }
         return courseRepository.findOne(id);
     }
 
@@ -53,6 +69,16 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public List<Course> findByIdIn(List<Integer> ids){
+        List<Course> courseList = new ArrayList<>();
+        Map<String, Course> courseMap = BaseDataCacheUtils.getCourseCacheMap();
+        for (Integer id : ids) {
+            if (courseMap.containsKey(String.valueOf(id))) {
+                courseList.add(courseMap.get(String.valueOf(id)));
+            }
+        }
+        if (courseList.size() > 0) {
+            return courseList;
+        }
         return courseRepository.findByIdIn(ids);
     }
 

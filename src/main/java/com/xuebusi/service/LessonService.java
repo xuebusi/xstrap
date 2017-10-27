@@ -18,6 +18,12 @@ public interface LessonService {
     Lesson findOne(Integer id);
 
     /**
+     * 查询所有课时
+     * @return
+     */
+    List<Lesson> findAll();
+
+    /**
      * 根据课程id查询课程目录
      * @param courseId
      * @return

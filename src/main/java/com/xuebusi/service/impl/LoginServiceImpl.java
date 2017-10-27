@@ -10,6 +10,7 @@ import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,11 +28,21 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginInfo findOne(Integer id) {
+        Collection<LoginInfo> loginInfos = BaseDataCacheUtils.getLoginInfoCacheMap().values();
+        for (LoginInfo loginInfo : loginInfos) {
+            if (id == loginInfo.getId()) {
+                return loginInfo;
+            }
+        }
         return loginRepository.findOne(id);
     }
 
     @Override
     public List<LoginInfo> findAll() {
+        Collection<LoginInfo> loginInfos = BaseDataCacheUtils.getLoginInfoCacheMap().values();
+        if (loginInfos != null && loginInfos.size() > 0) {
+            return (List<LoginInfo>) loginInfos;
+        }
         return loginRepository.findAll();
     }
 
@@ -43,7 +54,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginInfo findByUsername(String username) {
         //先查缓存
-        LoginInfo loginInfo = BaseDataCacheUtils.getUserCacheMap().get(username);
+        LoginInfo loginInfo = BaseDataCacheUtils.getLoginInfoCacheMap().get(username);
         if (loginInfo != null) {
             System.out.println(">>>>>> 读取缓存用户数据: " + JSON.toJSONString(loginInfo));
             return loginInfo;
@@ -65,7 +76,7 @@ public class LoginServiceImpl implements LoginService {
         userRepository.save(user);
 
         //更新缓存
-        BaseDataCacheUtils.getUserCacheMap().put(loginInfo.getUsername(), newLoginInfo);
+        BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), newLoginInfo);
         System.out.println(">>>>>> 更新缓存: " + JSON.toJSONString(newLoginInfo));
         return newLoginInfo;
     }
