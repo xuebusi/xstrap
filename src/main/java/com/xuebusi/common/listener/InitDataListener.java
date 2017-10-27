@@ -64,7 +64,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), loginInfo);
             }
         }
-        logger.info("\n\n>>>>>> 登录用户信息缓存 >>>>>> " + JSON.toJSONString(loginInfoList));
+        logger.info("\n\n>>>>>> 登录用户信息缓存 >>>>>> ");
     }
 
     /**
@@ -77,7 +77,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getCourseCacheMap().put(String.valueOf(course.getId()), course);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课程基本信息 >>>>>> " + JSON.toJSONString(courseList));
+        logger.info("\n\n>>>>>> 缓存课程基本信息 >>>>>> ");
     }
 
     /**
@@ -90,7 +90,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getCourseDetailCacheMap().put(String.valueOf(courseDetail.getId()), courseDetail);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课程详情信息 >>>>>> " + JSON.toJSONString(courseDetailList));
+        logger.info("\n\n>>>>>> 缓存课程详情信息 >>>>>> ");
     }
 
     /**
@@ -103,7 +103,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getLessonCacheMap().put(String.valueOf(lesson.getId()), lesson);
             }
         }
-        logger.info("\n\n>>>>>> 缓存课时信息 >>>>>> " + JSON.toJSONString(lessonList));
+        logger.info("\n\n>>>>>> 缓存课时信息 >>>>>> ");
     }
 
     /**
@@ -116,7 +116,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
             }
         }
-        logger.info("\n\n>>>>>> 缓存讲师信息 >>>>>> " + JSON.toJSONString(teacherList));
+        logger.info("\n\n>>>>>> 缓存讲师信息 >>>>>> ");
     }
 
     /**
@@ -129,7 +129,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
                 BaseDataCacheUtils.getUserCacheMap().put(user.getUsername(), user);
             }
         }
-        logger.info("\n\n>>>>>> 缓存用户基本信息 >>>>>> " + JSON.toJSONString(userList));
+        logger.info("\n\n>>>>>> 缓存用户基本信息 >>>>>> ");
     }
 
 }
