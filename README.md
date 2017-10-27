@@ -10,23 +10,23 @@
 
 ## 演示效果图
 
-<h2>1.首页</h2>
+<h3 style="color:#505d64">1.首页</h3>
 
 ![](screenshot/20171027224758.jpg)
 
-<h2>2.详情页</h2>
+<h3 style="color:#505d64">2.详情页</h3>
 
 ![](screenshot/20171027224844.jpg)
 
-<h2>3.登录页</h2>
+<h3 style="color:#505d64">3.登录页</h3>
 
 ![](screenshot/20171027224917.jpg)
 
-<h2>4.我的学习课程</h2>
+<h3 style="color:#505d64">4.我的学习课程</h3>
 
 ![](screenshot/20171027224940.jpg)
 
-<h2>5.个人设置</h2>
+<h3 style="color:#505d64">5.个人设置</h3>
 
 ![](screenshot/20171027224955.jpg)
 

@@ -64,8 +64,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state>
-              <first_editor vertical-scroll-proportion="-0.16835018">
-                <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <first_editor vertical-scroll-proportion="0.5050505">
+                <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -695,7 +695,7 @@
       <workItem from="1509083732424" duration="660000" />
       <workItem from="1509085462191" duration="1227000" />
       <workItem from="1509108577041" duration="9627000" />
-      <workItem from="1509118275868" duration="1126000" />
+      <workItem from="1509118275868" duration="1284000" />
     </task>
     <task id="LOCAL-00001" summary="修改首页logo的url">
       <created>1508944329657</created>
@@ -799,11 +799,17 @@
       <option name="project" value="LOCAL" />
       <updated>1509119215594</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="添加项目描述">
+      <created>1509119406895</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1509119406895</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149314000" />
+    <option name="totallyTimeSpent" value="149472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1281,8 +1287,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state>
-          <first_editor vertical-scroll-proportion="-0.16835018">
-            <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <first_editor vertical-scroll-proportion="0.5050505">
+            <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
