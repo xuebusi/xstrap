@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0073)http://www.chinahadoop.cn/partner/login?goto=http%3A//www.chinahadoop.cn/ -->
+<!-- saved from url=(0073)http://www.xuebusi.cn/partner/login?goto=http%3A//www.xuebusi.cn/ -->
 <html lang="zh_CN"><!--<![endif]-->
 <#include "../common/head.ftl">
 
@@ -58,7 +58,7 @@
 
     <div id="content-container" class="container">
 
-        <div id="page-message-container" class="page-message-container" data-goto="http://www.chinahadoop.cn/" data-duration="3000">
+        <div id="page-message-container" class="page-message-container" data-goto="http://www.xuebusi.cn/" data-duration="3000">
             <div class="page-message-panel">
                 <div class="page-message-heading">
                     <h2 class="page-message-title">登录成功</h2>

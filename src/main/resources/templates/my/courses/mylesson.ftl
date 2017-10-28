@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)http://www.chinahadoop.cn/course/1049 -->
+<!-- saved from url=(0037)http://www.xuebusi.cn/course/1049 -->
 <html lang="zh_CN"><!--<![endif]-->
 <#include "../../common/head.ftl">
 <body class="course-dashboard-page" onbeforeunload="return CheckUnsave();">
@@ -56,10 +56,10 @@
             <#include "../../common/course-sidebar.ftl">
         </div>
         <div class="hidden jweixin-data"
-             data-config="{&quot;appId&quot;:&quot;wxe9c061d2aed9ae09&quot;,&quot;timestamp&quot;:1508671156,&quot;nonceStr&quot;:&quot;edusoho59ec7eb4d5b52&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VEFBLv_oYA1_Wo8T3MxNWVQp7DnYoh6nBIcapQtBWDX0XNRw3-DdNk6ZT1nKbQyZeg&amp;noncestr=edusoho59ec7eb4d5b52&amp;timestamp=1508671156&amp;url=http:\/\/www.chinahadoop.cn\/course\/1049&quot;,&quot;signature&quot;:&quot;20c9a7576f6caf23eb6c1e120002380a2700cd16&quot;}"
+             data-config="{&quot;appId&quot;:&quot;wxe9c061d2aed9ae09&quot;,&quot;timestamp&quot;:1508671156,&quot;nonceStr&quot;:&quot;edusoho59ec7eb4d5b52&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VEFBLv_oYA1_Wo8T3MxNWVQp7DnYoh6nBIcapQtBWDX0XNRw3-DdNk6ZT1nKbQyZeg&amp;noncestr=edusoho59ec7eb4d5b52&amp;timestamp=1508671156&amp;url=http:\/\/www.xuebusi.cn\/course\/1049&quot;,&quot;signature&quot;:&quot;20c9a7576f6caf23eb6c1e120002380a2700cd16&quot;}"
              data-title="《用Python进行员工离职原因分析及预测》"
              data-desc="直播简介近两年来，数据分析师的岗位需求非常大，90%的岗位技能需要掌握Python作为数据分析工具，Python语言的易学性、快速开发，拥有丰富强大的扩展库和成熟的框架等特性很好地满足了数据分析师的职业技能要求。很多互联网公司都逐渐意识到了数据的重要性，但却缺乏相关的专业人才来分析和管理数据。本讲座主要通过数据处理分析建模的流程讲述各步骤的知识和技巧，并最终通过“员工离职原因分析及预测”案例演示如何通过使用Python中常用的数据分析建模库完成一个基本的数据分析建模项目，使学员能够快速地了解数据分析建模的整个流程。直播安排1.数据分析基本概念2.数据分析基本步骤3.Pandas简单数据分析4.数据分析建模理论基础5.案例分析演讲者梁斌查尔斯特大学（CharlesSturtUniversity）计算机博士，从事机器学习、计算机视觉及模式识别等相关方向的研究，在计算机视觉等国际会议及期刊发表10余篇学术论文。现就职于澳大利亚某科学研究机构（博士后），负责算法改进及其产品化、数据分析处理、建模及可视化。"
-             data-link="http://www.chinahadoop.cn/course/1049"
+             data-link="http://www.xuebusi.cn/course/1049"
              data-img-url="http://scb1a9q0-sb.qiqiuyun.net/files/course/2017/10-10/11322591bc24995005.png" data-type=""
              data-data-url="">
         </div>

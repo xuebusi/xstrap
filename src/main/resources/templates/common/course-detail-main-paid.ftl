@@ -4,18 +4,18 @@
         <div class="nav-btn-tab">
             <ul class="nav nav-tabs " role="tablist">
                 <li style="width: 25%;" role="presentation" class="active">
-                    <a href="http://www.chinahadoop.cn/course/1049/lesson/list">直播列表</a>
+                    <a href="http://www.xuebusi.cn/course/1049/lesson/list">直播列表</a>
                 </li>
                 <li style="width: 25%;" role="presentation">
-                    <a href="http://www.chinahadoop.cn/course/1049/lesson/hflist">回放列表</a>
+                    <a href="http://www.xuebusi.cn/course/1049/lesson/hflist">回放列表</a>
                 </li>
                 <li style="width: 25%;" role="presentation">
-                    <a href="http://www.chinahadoop.cn/course/1049/material/">课程资料
+                    <a href="http://www.xuebusi.cn/course/1049/material/">课程资料
                         <small class="text-muted">( 2 )</small>
                     </a>
                 </li>
                 <li style="width: 25%;" role="presentation">
-                    <a href="http://www.chinahadoop.cn/course/1049/thread">问老师</a>
+                    <a href="http://www.xuebusi.cn/course/1049/thread">问老师</a>
                 </li>
                 <li class="highlight" style="left: 0px; width: 217px; overflow: hidden;"></li>
             </ul>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://www.chinahadoop.cn/my/courses/learning -->
+<!-- saved from url=(0045)http://www.xuebusi.cn/my/courses/learning -->
 <html lang="zh_CN"><!--<![endif]-->
 <#include "../../common/head.ftl">
 <body class="my-course" onbeforeunload="return CheckUnsave();">

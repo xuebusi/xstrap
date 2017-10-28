@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
 <html lang="zh_CN" >
 
-<!-- Mirrored from www.chinahadoop.cn/password/reset by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:13 GMT -->
+<!-- Mirrored from www.xuebusi.cn/password/reset by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:13 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <#include "../common/head.ftl">
 <body  onbeforeunload="return CheckUnsave();">
@@ -121,7 +121,7 @@
 
                     </form>
 
-                    <form id="password-reset-by-mobile-form" class="form-vertical" action="http://www.chinahadoop.cn/password/reset/by_sms" method="post" style="display: none;width: 90%;margin: 0 auto;">
+                    <form id="password-reset-by-mobile-form" class="form-vertical" action="http://www.xuebusi.cn/password/reset/by_sms" method="post" style="display: none;width: 90%;margin: 0 auto;">
 
                         <div class="form-group">
                             <div class="controls">
@@ -216,5 +216,5 @@
 </script>
 </body>
 
-<!-- Mirrored from www.chinahadoop.cn/password/reset by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:13 GMT -->
+<!-- Mirrored from www.xuebusi.cn/password/reset by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:13 GMT -->
 </html>

@@ -9,7 +9,7 @@
         <div class="panel-body">
             <div class="media media-default" style="margin-bottom:15px;">
                 <div class="media-left" style="padding-bottom:0">
-                    <a class=" js-user-card" href="http://www.chinahadoop.cn/user/29231"
+                    <a class=" js-user-card" href="http://www.xuebusi.cn/user/29231"
                        data-card-url="/user/29231/card/show" data-user-id="29231">
                         <img class="avatar-md" src="${(teacher.teacherPhotoUrl)!''}">
                     </a>
@@ -17,7 +17,7 @@
                 <div class="media-body" style="padding-top:0">
                     <div class="title">
                         <a class="link-dark link-light"
-                           href="http://www.chinahadoop.cn/user/29231">${(teacher.teacherName)!''}</a>
+                           href="http://www.xuebusi.cn/user/29231">${(teacher.teacherName)!''}</a>
                     </div>
                     <div class="content"></div>
                 </div>
@@ -26,7 +26,7 @@
                 </div>
                 <div style="padding-top: 22px;">
                     <h4 class="freeListen">
-                        <a href="http://www.chinahadoop.cn/user/29231">免费试听老师课程</a>
+                        <a href="http://www.xuebusi.cn/user/29231">免费试听老师课程</a>
                     </h4>
                 </div>
             </div>

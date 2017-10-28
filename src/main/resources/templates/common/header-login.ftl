@@ -7,7 +7,7 @@
                 </a>
                 <div class="html-mask"></div>
                 <div class="nav-mobile">
-                    <form class="navbar-form" action="http://www.chinahadoop.cn/search" method="get">
+                    <form class="navbar-form" action="http://www.xuebusi.cn/search" method="get">
                         <div class="form-group">
                             <input class="form-control" placeholder="搜索" name="q">
                             <button class="button es-icon es-icon-search"></button>
