@@ -1,7 +1,6 @@
 package com.xuebusi.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.repository.LoginRepository;
@@ -9,6 +8,8 @@ import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
  * Created by SYJ on 2017/10/15.
  */
 @Service
+@Transactional(readOnly = true)
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
@@ -28,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginInfo findOne(Integer id) {
-        Collection<LoginInfo> loginInfos = BaseDataCacheUtils.getLoginInfoCacheMap().values();
+        Collection<LoginInfo> loginInfos = InitDataCacheMap.getLoginInfoCacheMap().values();
         for (LoginInfo loginInfo : loginInfos) {
             if (id == loginInfo.getId()) {
                 return loginInfo;
@@ -39,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public List<LoginInfo> findAll() {
-        Collection<LoginInfo> loginInfos = BaseDataCacheUtils.getLoginInfoCacheMap().values();
+        Collection<LoginInfo> loginInfos = InitDataCacheMap.getLoginInfoCacheMap().values();
         if (loginInfos != null && loginInfos.size() > 0) {
             return (List<LoginInfo>) loginInfos;
         }
@@ -54,7 +56,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginInfo findByUsername(String username) {
         //先查缓存
-        LoginInfo loginInfo = BaseDataCacheUtils.getLoginInfoCacheMap().get(username);
+        LoginInfo loginInfo = InitDataCacheMap.getLoginInfoCacheMap().get(username);
         if (loginInfo != null) {
             return loginInfo;
         }
@@ -66,16 +68,16 @@ public class LoginServiceImpl implements LoginService {
      * @param loginInfo
      * @return
      */
-    @Override
+    @Transactional(readOnly = false)
     public LoginInfo save(LoginInfo loginInfo) {
         LoginInfo newLoginInfo = loginRepository.save(loginInfo);
-        BaseDataCacheUtils.getLoginInfoCacheMap().put(newLoginInfo.getUsername(), newLoginInfo);
+        InitDataCacheMap.getLoginInfoCacheMap().put(newLoginInfo.getUsername(), newLoginInfo);
 
         //同时生成一条用户基本信息
         User user = new User();
         user.setUsername(loginInfo.getUsername());
         User newUser = userRepository.save(user);
-        BaseDataCacheUtils.getUserCacheMap().put(newUser.getUsername(), newUser);
+        InitDataCacheMap.getUserCacheMap().put(newUser.getUsername(), newUser);
         return newLoginInfo;
     }
 }

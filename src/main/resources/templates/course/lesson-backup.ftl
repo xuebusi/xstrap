@@ -279,22 +279,22 @@ aA[index].style.color = 'red'*/
                     <div class="panel-body">
                         <div class="media media-default" style="margin-bottom:15px;">
                             <div class="media-left" style="padding-bottom:0">
-                                <a class=" js-user-card" href="../../../../user/29231.html" data-card-url="/user/29231/card/show" data-user-id="29231">
+                                <a class=" js-user-card" href="/user/29231.html" data-card-url="/user/29231/card/show" data-user-id="29231">
                                     <img class="avatar-md" src="${teacher.teacherPhotoUrl}" />
                                 </a>
                             </div>
                             <div class="media-body" style="padding-top:0">
                                 <div class="title">
-                                    <a class="link-dark link-light" href="../../../../user/29231.html">${teacher.teacherName}</a>
+                                    <a class="link-dark link-light" href="/user/29231.html">${teacher.teacherName}</a>
                                 </div>
                                 <div class="content"></div>
                             </div>
                             <div style="border-top: solid 1px #eee; display: -webkit-box; -webkit-box-orient: vertical;
 -webkit-line-clamp:3; overflow:hidden; text-overflow:ellipsis; margin-top: 18px">
-                                <p class="teacherAbout">${teacher.teacherAbout}</p>
+                                <p class="userAbout">${teacher.teacherAbout}</p>
                             </div>
                             <div style="padding-top: 22px;">
-                                <h4 class="freeListen"><a href="../../../../user/29231.html">免费试听老师课程</a> </h4>
+                                <h4 class="freeListen"><a href="/user/29231.html">免费试听老师课程</a> </h4>
                             </div>
                         </div>
                     </div>

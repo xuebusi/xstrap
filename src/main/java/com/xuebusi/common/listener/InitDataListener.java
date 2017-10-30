@@ -1,6 +1,6 @@
 package com.xuebusi.common.listener;
 
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.*;
 import com.xuebusi.service.*;
 import org.slf4j.Logger;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * 启动时缓存数据
  * Created by SYJ on 2017/10/26.
  */
 @Component
@@ -60,7 +61,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<LoginInfo> loginInfoList = loginService.findAll();
         if (loginInfoList != null && loginInfoList.size() > 0) {
             for (LoginInfo loginInfo : loginInfoList) {
-                BaseDataCacheUtils.getLoginInfoCacheMap().put(loginInfo.getUsername(), loginInfo);
+                InitDataCacheMap.getLoginInfoCacheMap().put(loginInfo.getUsername(), loginInfo);
             }
         }
         logger.info(">>>>>> 登录用户信息缓存 >>>>>>\n\n");
@@ -73,7 +74,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<Course> courseList = courseService.findAll();
         if (courseList != null && courseList.size() > 0) {
             for (Course course : courseList) {
-                BaseDataCacheUtils.getCourseCacheMap().put(String.valueOf(course.getId()), course);
+                InitDataCacheMap.getCourseCacheMap().put(String.valueOf(course.getId()), course);
             }
         }
         logger.info(">>>>>> 缓存课程基本信息 >>>>>>\n\n");
@@ -86,7 +87,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<CourseDetail> courseDetailList = courseDetailService.findAll();
         if (courseDetailList != null && courseDetailList.size() > 0) {
             for (CourseDetail courseDetail : courseDetailList) {
-                BaseDataCacheUtils.getCourseDetailCacheMap().put(String.valueOf(courseDetail.getId()), courseDetail);
+                InitDataCacheMap.getCourseDetailCacheMap().put(String.valueOf(courseDetail.getId()), courseDetail);
             }
         }
         logger.info(">>>>>> 缓存课程详情信息 >>>>>>\n\n");
@@ -99,7 +100,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<Lesson> lessonList = lessonService.findAll();
         if (lessonList != null && lessonList.size() > 0) {
             for (Lesson lesson : lessonList) {
-                BaseDataCacheUtils.getLessonCacheMap().put(String.valueOf(lesson.getId()), lesson);
+                InitDataCacheMap.getLessonCacheMap().put(String.valueOf(lesson.getId()), lesson);
             }
         }
         logger.info(">>>>>> 缓存课时信息 >>>>>>\n\n");
@@ -112,7 +113,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<Teacher> teacherList = teacherService.findAll();
         if (teacherList != null && teacherList.size() > 0) {
             for (Teacher teacher : teacherList) {
-                BaseDataCacheUtils.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
+                InitDataCacheMap.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
             }
         }
         logger.info(">>>>>> 缓存讲师信息 >>>>>>\n\n");
@@ -125,7 +126,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         List<User> userList = userService.findAll();
         if (userList != null && userList.size() > 0) {
             for (User user : userList) {
-                BaseDataCacheUtils.getUserCacheMap().put(user.getUsername(), user);
+                InitDataCacheMap.getUserCacheMap().put(user.getUsername(), user);
             }
         }
         logger.info(">>>>>> 缓存用户基本信息 >>>>>>\n\n");

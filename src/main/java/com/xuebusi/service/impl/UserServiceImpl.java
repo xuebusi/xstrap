@@ -1,6 +1,6 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.User;
 import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.UserService;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findOne(Integer id) {
-        Collection<User> users = BaseDataCacheUtils.getUserCacheMap().values();
+        Collection<User> users = InitDataCacheMap.getUserCacheMap().values();
         for (User user : users) {
             if (id == user.getId()) {
                 return user;
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        Collection<User> users = BaseDataCacheUtils.getUserCacheMap().values();
+        Collection<User> users = InitDataCacheMap.getUserCacheMap().values();
         if (users != null && users.size() > 0) {
             return (List<User>) users;
         }
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findByUsername(String username) {
-        User user = BaseDataCacheUtils.getUserCacheMap().get(username);
+        User user = InitDataCacheMap.getUserCacheMap().get(username);
         if (user != null) {
             return user;
         }
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(User user) {
         User newUser = userRepository.save(user);
-        BaseDataCacheUtils.getUserCacheMap().put(newUser.getUsername(), newUser);
+        InitDataCacheMap.getUserCacheMap().put(newUser.getUsername(), newUser);
         return newUser;
     }
 }

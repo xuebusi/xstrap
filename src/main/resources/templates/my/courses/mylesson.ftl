@@ -55,6 +55,7 @@
             <#include "../../common/course-detail-main-paid.ftl">
             <#include "../../common/course-sidebar.ftl">
         </div>
+
         <div class="hidden jweixin-data"
              data-config="{&quot;appId&quot;:&quot;wxe9c061d2aed9ae09&quot;,&quot;timestamp&quot;:1508671156,&quot;nonceStr&quot;:&quot;edusoho59ec7eb4d5b52&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VEFBLv_oYA1_Wo8T3MxNWVQp7DnYoh6nBIcapQtBWDX0XNRw3-DdNk6ZT1nKbQyZeg&amp;noncestr=edusoho59ec7eb4d5b52&amp;timestamp=1508671156&amp;url=http:\/\/www.xuebusi.cn\/course\/1049&quot;,&quot;signature&quot;:&quot;20c9a7576f6caf23eb6c1e120002380a2700cd16&quot;}"
              data-title="《用Python进行员工离职原因分析及预测》"

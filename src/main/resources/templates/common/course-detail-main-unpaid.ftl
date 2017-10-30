@@ -1,25 +1,35 @@
-<div class="col-lg-9 col-md-8  course-detail-main">
-    <section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
-        <div class="nav-btn-tab">
-            <ul class="nav nav-tabs " role="tablist">
-                <li style="width: 25%;" role="presentation">
-                    <a href="/course/${(course.id)!''}">课程介绍</a>
-                </li>
-                <li style="width: 25%;" role="presentation" class="active">
-                    <a href="/course/${(course.id)!''}/lesson">课程目录
-                        <small class="text-muted">( ${lessonCount!''} )</small>
-                    </a>
-                </li>
-                <li style="width: 25%;" role="presentation">
-                    <a href="../../type/notice.html"> 听课须知</a>
-                </li>
-                <li style="width: 25%;" role="presentation">
-                    <a href="../../reviews/index.html">往期评论
-                        <small class="text-muted">( 1 )</small>
-                    </a>
-                </li>
-            </ul>
+<section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
+    <div class="nav-btn-tab">
+        <ul class="nav nav-tabs " role="tablist">
+            <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '1'>class="active"</#if>>
+                <a href="/course/${(course.id)!''}?selectiveType=1">课程介绍</a>
+            </li>
+            <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '2'>class="active"</#if>>
+                <a href="/course/${(course.id)!''}/lesson?selectiveType=2">课程目录
+                    <small class="text-muted">( ${lessonCount!''} )</small>
+                </a>
+            </li>
+            <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '3'>class="active"</#if>>
+                <a href="../../type/notice?selectiveType=3"> 听课须知</a>
+            </li>
+            <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '4'>class="active"</#if>>
+                <a href="../../reviews?selectiveType=4">往期评论
+                    <small class="text-muted">( 1 )</small>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <#if selectiveType?? && selectiveType == '1'>
+        <div class="course-detail-content" style="padding: 15px">
+            <div class="es-piece">
+                <div class="piece-body p-lg clearfix">
+                ${(courseDetail.courseDesc)!''}
+                </div>
+            </div>
         </div>
+    </#if>
+
+    <#if selectiveType?? && selectiveType == '2'>
         <div class="course-detail-content">
             <div class="es-piece">
                 <div class="piece-body">
@@ -56,6 +66,5 @@
                 </div>
             </div>
         </div>
-    </section>
-    <#include "../common/course-relevant.ftl">
-</div>
+    </#if>
+</section>

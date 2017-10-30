@@ -8,6 +8,7 @@ import com.xuebusi.common.utils.MD5Utils;
 public class AppTest {
     public static void main(String[] args) {
         String admin = MD5Utils.md5("admin2");
+        String pwd = MD5Utils.md5("admin2");
         System.out.println(admin);
     }
 }

@@ -1,11 +1,42 @@
+<#if courseRelevantList??>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="es-icon es-icon-explore"></i>相关课程</h3>
+        <h3 class="panel-title">
+            <i class="es-icon es-icon-explore"></i>相关课程
+        </h3>
     </div>
     <div class="panel-body">
         <div class="course-list no-shadow no-margin">
             <div class="row">
+                <#list courseRelevantList as course>
                 <div class="col-lg-4 col-md-6 col-xs-6 ">
+                    <div class="course-item">
+                        <div class="course-img">
+                            <a href="${(course.courseLink)!}" target="_blank">
+                                <span class="tags">
+                                    <span class="tag-finished"></span>
+                                </span>
+                                <img src="${(course.courseImgUrl)!}" alt="${(course.courseTitle)!}" class="img-responsive" data-echo="${(course.courseImgUrl)!}"/>
+                            </a>
+                        </div>
+                        <div class="course-info">
+                            <div class="title">
+                                <a class="link-dark" href="${(course.courseLink)!}" target="_blank">
+                                ${(course.courseTitle)!}
+                                </a>
+                            </div>
+                            <div class="metas clearfix">
+                                <span class="num hidden-md hidden-sm hidden-xs">参课人数：34</span>
+                                <span class="course-price-widget">
+                                    <span class="price" style="font-size: 24px">${(course.coursePrice)!}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </#list>
+
+                <#--<div class="col-lg-4 col-md-6 col-xs-6 ">
                     <div class="course-item">
                         <div class="course-img">
                             <a href="/course/158" target="_blank"> <span class="tags"><span class="tag-finished"></span></span>
@@ -70,8 +101,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 </div>
+</#if>

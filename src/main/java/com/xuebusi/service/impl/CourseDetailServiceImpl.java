@@ -1,6 +1,6 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.CourseDetail;
 import com.xuebusi.repository.CourseDetailRepository;
 import com.xuebusi.service.CourseDetailService;
@@ -26,7 +26,7 @@ public class CourseDetailServiceImpl implements CourseDetailService {
      */
     @Override
     public CourseDetail findOne(Integer courseId) {
-        CourseDetail courseDetail = BaseDataCacheUtils.getCourseDetailCacheMap().get(String.valueOf(courseId));
+        CourseDetail courseDetail = InitDataCacheMap.getCourseDetailCacheMap().get(String.valueOf(courseId));
         if (courseDetail != null) {
             return courseDetail;
         }

@@ -9,24 +9,24 @@
         <div class="panel-body">
             <div class="media media-default" style="margin-bottom:15px;">
                 <div class="media-left" style="padding-bottom:0">
-                    <a class=" js-user-card" href="http://www.xuebusi.cn/user/29231"
-                       data-card-url="/user/29231/card/show" data-user-id="29231">
-                        <img class="avatar-md" src="${(teacher.teacherPhotoUrl)!''}">
+                    <a class=" js-user-card" href="/user/${(user.id)!}"
+                       data-card-url="/user/${(user.id)!}/card/show" data-user-id="29231">
+                        <img class="avatar-md" src="${(user.titleImgUrl)!''}">
                     </a>
                 </div>
                 <div class="media-body" style="padding-top:0">
                     <div class="title">
                         <a class="link-dark link-light"
-                           href="http://www.xuebusi.cn/user/29231">${(teacher.teacherName)!''}</a>
+                           href="/user/${(user.id)!}">${(user.username)!''}</a>
                     </div>
                     <div class="content"></div>
                 </div>
                 <div style="border-top: solid 1px #eee; display: -webkit-box; -webkit-box-orient: vertical;-webkit-line-clamp:3; overflow:hidden; text-overflow:ellipsis; margin-top: 18px">
-                    <p class="teacherAbout">${(teacher.teacherAbout)!''}</p>
+                    <p class="userAbout">${(user.about)!''}</p>
                 </div>
                 <div style="padding-top: 22px;">
                     <h4 class="freeListen">
-                        <a href="http://www.xuebusi.cn/user/29231">免费试听老师课程</a>
+                        <a href="/user/${(user.id)!}">免费试听老师课程</a>
                     </h4>
                 </div>
             </div>

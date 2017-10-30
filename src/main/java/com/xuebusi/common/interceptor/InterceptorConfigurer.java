@@ -20,7 +20,7 @@ public class InterceptorConfigurer extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CommonIntercepter()).addPathPatterns("/settings/**", "/my/**", "/courses/learning");
+        registry.addInterceptor(new CommonIntercepter()).addPathPatterns("/order/**", "/settings/**", "/my/**", "/courses/learning", "/message/**");
         super.addInterceptors(registry);
     }
 
@@ -31,7 +31,7 @@ public class InterceptorConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //测试url跳转
-        registry.addViewController("/test").setViewName("/test/test");
+        //registry.addViewController("/test").setViewName("/test/test");
         super.addViewControllers(registry);
     }
 }

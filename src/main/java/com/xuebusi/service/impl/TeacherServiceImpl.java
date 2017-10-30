@@ -1,6 +1,6 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.Teacher;
 import com.xuebusi.repository.TeacherRepository;
 import com.xuebusi.service.TeacherService;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 讲师
@@ -28,7 +27,7 @@ public class TeacherServiceImpl implements TeacherService {
      */
     @Override
     public Teacher findOne(Integer id) {
-        Teacher teacher = BaseDataCacheUtils.getTeacherCacheMap().get(String.valueOf(id));
+        Teacher teacher = InitDataCacheMap.getTeacherCacheMap().get(String.valueOf(id));
         if (teacher != null) {
             return teacher;
         }
@@ -41,7 +40,7 @@ public class TeacherServiceImpl implements TeacherService {
      */
     @Override
     public List<Teacher> findAll() {
-        Collection<Teacher> teachers = BaseDataCacheUtils.getTeacherCacheMap().values();
+        Collection<Teacher> teachers = InitDataCacheMap.getTeacherCacheMap().values();
         if (teachers != null && teachers.size() > 0) {
             return (List<Teacher>) teachers;
         }

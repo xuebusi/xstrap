@@ -59,10 +59,10 @@
                 <!--判断会员身份是否到期-->
                 <!--判断会员身份是否到期end-->
                 <div class="hidden-xs hidden-sm">
-                    <#if course.coursePrice == 0>
-                    <a class="btn btn-primary btn-lg" href="/order/show?targetId=825&amp;targetType=course">加入学习</a>
+                    <#if (course.coursePrice)?? && course.coursePrice == 0>
+                        <a class="btn btn-primary btn-lg" href="/order/show?targetId=${(course.id)!}&amp;targetType=course">加入学习</a>
                     <#else>
-                    <a class="btn btn-primary btn-lg" href="../../../../login.html?targetId=1040&amp;targetType=course"> 加入购买</a>
+                        <a class="btn btn-primary btn-lg" href="/order/show?targetId=${(course.id)!}&amp;targetType=course"> 加入购买</a>
                     </#if>
                 </div>
             </div>

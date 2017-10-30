@@ -69,7 +69,7 @@ aA[index].style.color = 'red'*/
     <div id="content-container" class="container" style="width: 100%; border-top: 1px solid #dedede; margin: 30px 0 0 0; background: #FAFAFA;">
         <div class="course-detail row" style="width: 90%;margin: 0 auto; max-width: 1200px;">
             <div class="col-lg-9 col-md-8  course-detail-main">
-                <section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
+                <#--<section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
                     <div class="nav-btn-tab">
                         <ul class="nav nav-tabs " role="tablist">
                             <li style="width: 25%;" role="presentation" class="active"><a href="/course/${(course.id)!''}">课程介绍</a>
@@ -92,7 +92,8 @@ aA[index].style.color = 'red'*/
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>-->
+                <#include "../common/course-detail-main-unpaid.ftl">
                 <#include "../common/course-relevant.ftl">
             </div>
             <#include "../common/course-sidebar.ftl">
@@ -100,7 +101,7 @@ aA[index].style.color = 'red'*/
         <div class="hidden jweixin-data" data-config="{"appId":"wxe9c061d2aed9ae09","timestamp":1507419496,"nonceStr":"edusoho59d9656887654","jsApiList":["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQZone","onMenuShareQQ"],"string":"jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VEFBLv_oYA1_Wo8T3MxNWVQgJZd0v-XRKaB1rh7XuNO_ytxPkjx6aZ8-2vUaJI0eGg&noncestr=edusoho59d9656887654&timestamp=1507419496&url=http:\/\/www.xuebusi.cn\/course\/894","signature":"db5c6d75e0b250b52c5d8361d88f100a614a91ba"}"
         data-title="《Spark 2.1》第二期" data-desc='课程名称:《Spark2.1原理、内幕与案例实践》第二期主讲老师：董西成hulu大数据架构组负责人《Hadoop技术内幕：深入解析MapReduce架构设计与实现原理》和《Hadoop技术内幕：深入解析YARN架构设计与实现原理》作者；资深Hadoop技术实践者和研究者，曾参与商用Hadoop原型研发，以及分布式日志系统、全网图片搜索引擎、Hadoop调度器等项目的设计。课程简介：以目前主流的，最新的spark稳定版2.1.x为基础，深入浅出地介绍Spark生态系统原理及应用，内容包括Spark各组件(SparkCore/SQL/Streaming/MLlib)基本原理，使用方法，实战经验以及在线演示。本课程精心设计了五个企业级应用案例，帮助大家在理解理论的基础上，亲手实践和应用spark。课程优化：1.讲述最新、最稳定的Spark2.1.X版本2.精心设计5个企业级应用案例，更好地实践、应用Spark面向人群：1.大数据爱好者2.Spark初中级学者3.对Spark感兴趣、想系统性学习者学习收益：1.熟练使用Spark，理解Spark原理，熟知Spark内幕2.掌握Spark2.1新增特性并熟练使用3.用有丰富的Spark企业实战经验开课时间：2017年4月6日学习方式：在线直播，共9次课，每次2小时每周2次（周二、周四，晚上20:00-22:00）直播后提供录制回放视频，可在线反复观看，有效期1年课程大纲：第一部分:Spark概述第一课：Spark2.1概述1.Spark产生背景包括mapreduce缺陷，多计算框架并存等2.Spark基本特点3.Spark版本演化4.Spark核心概念包括RDD,transformation,action,cache等5.Spark生态系统包括Spark生态系统构成，以及与Hadoop生态系统关系6.Spark在互联网公司中的地位与应用介绍当前互联网公司的Spark应用案例7.Spark集群搭建包括测试集群搭建和生产环境中集群搭建方法，并亲手演示整个过程8.背景知识补充介绍a.Hadoop基础b.HDFS简介（特点、架构与应用）c.YARN简介（架构）d.MapReduce简介（编程模型与应用）I.Eclipse与IntellijIDEAII.Maven第二部分SparkCore第二课：Spark程序设计与企业级应用案例1.Spark运行模式介绍Spark运行组件构成，spark运行模式（local、standalone、mesos/yarn等）2.Spark开发环境构建集成开发环境选择，亲手演示spark程序开发与调试，spark运行3.常见transformation与action用法介绍常见transformation与action使用方法，以及代码片段剖析4.常见控制函数介绍包括cache、broadcast、accumulator等5.Spark应用案例：电影受众分析系统包括：背景介绍，数据导入，数据分析，常见Sparktransformation和action用法在线演示第三课：Spark内部原理剖析与源码阅读1.Spark运行模式剖析深入分析spark运行模式，包括local，standalone以及sparkonyarn2.Spark运行流程剖析包括spark逻辑查询计划，物理查询计划以及分布式执行3.Sparkshuffle剖析深入介绍sparkshuffle的实现，主要介绍hash-based和sort-based两种实现4.Spark源码阅读Spark源码构成以及阅读方法第四课：Spark程序调优技巧1.数据存储格式调优数据存储格式选择，数据压缩算法选择等2.资源调优如何设置合理的executor、cpu和内存数目，YARN多租户调度器合理设置，启用YARN的标签调度策略等3.程序参数调优介绍常见的调优参数，包括避免不必要的文件分发，调整任务并发度，提高数据本地性，JVM参数调优，序列化等4.程序实现调优如何选择最合适的transformation与action函数5.调优案例分享与演示演示一个调优案例，如何将一个spark程序的性能逐步优化20倍以上。第三部分SparkSQL2.1第五课：SparkSQL基本原理1.SparkSQL是什么2.SparkSQL基本原理3.SparkDataframe与DataSet4.SparkSQL与SparkCore的关系第六课：SparkSQL程序设计与企业级应用案例1.SparkSQL程序设计a.如何访问MySQL、HDFS等数据源，如何处理parquet格式数据b.常用的DSL语法有哪些，如何使用c.SparkSQL调优技巧2.SparkSQL应用案例：篮球运动员评估系统a.背景介绍b.数据导入c.数据分析d.结论第四部分SparkStreaming第七课：SparkStreaming、程序设计及应用案例1.SparkStreaming基本原理a.SparkStreaming是什么b.SparkStreaming基本原理c.StructuredStreamingd.SparkStreaming编程接口介绍e.SparkStreaming应用案例2.SparkStreaming程序设计与企业级应用案例a.常见流式数据处理模式b.SparkStreaming与Kafka交互c.SparkStreaming与Redis交互d.SparkStreaming部署与运行e.SparkStreaming企业级案例：用户行为实时分析系统第五部分SparkMLlib第八课：SparkMLlib及企业级案例1.SparkMLlib简介2.数据表示方式3.MLlib中的聚类、分类和推荐算法4.如何使用MLlib的算法5.SparkMLLib企业级案例：信用卡欺诈检测系统第六部分Spark综合案例第九课：简易电影推荐系统1.背景介绍2.什么是Lambdaarchitecture3.利用HDFS+SparkCore+MLlib+Redis构建批处理线4.利用Kafka+SparkStreaming+Redis构建实时处理线5.整合批处理和实时处理线6.扩展介绍：Apachebeam：统一编程模型及应用常见问题：Q：本门课程需要什么基础?A：了解Linux基础知识，掌握Java或Scala语言基础，了解Hadoop核心组件技术Q：会有实际上机演示和动手操作吗？A：有的，几乎每节课，老师均会准备上机演示部分，学员可以学习老师的实践经验Q：本课程中的五个企业级应用案例的代码会公开吗？A：会的，每位学员均可获取全部代码。Q：本课程主要是基于Spark2.1.x版本吗，如果2.2.x或者更高版本出来了，内容会不会过期？A：不会的。本课程以介绍Spark基本原理和使用技巧为主，这些内容适用于1.6.x之后个各个版本。Q：本课程有专门的答疑时间吗？A：有的。助教会统一收集学员问题，老师在每节课最后部分，会在线回答20~30个问题，并由助教整理后发布到论坛中。Q：在哪里上课？A：课程直播和回放都在学布斯教育学院官网（http://www.xuebusi.cn）上进行，不需要其他直播软件；如果希望上下班路上观看，可以下载学布斯教育学院app进行缓存。联系方式：参团后，请加客服微信：13011218970手机：13011218970邮件：admin@xuebusi.cn网站：http://www.xuebusi.cn'
         data-link="894.html" data-img-url="../../scb1a9q0-sb.qiqiuyun.net/files/course/2017/09-07/131229d1e1b4605525.png" data-type="" data-data-url=""></div>
-</div>
+    </div>
 <#include "../common/footer.ftl">
 <!-- 侧边栏快捷操作 -->
 <#include "../common/sidebar.ftl">

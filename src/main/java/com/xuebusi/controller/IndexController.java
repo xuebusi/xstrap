@@ -1,7 +1,6 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.entity.Course;
-import com.xuebusi.mapper.CourseMapper;
 import com.xuebusi.service.CourseService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +82,16 @@ public class IndexController extends BaseController {
     public ModelAndView page(@PathVariable(value = "tag") String tag, Map<String, Object> map) {
         map.put("tag", tag);
         return new ModelAndView("/help/page", map);
+    }
+
+
+    /**
+     * 金币说明
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/coin/show")
+    public ModelAndView coinShow(Map<String, Object> map) {
+        return new ModelAndView("/help/coinshow", map);
     }
 }
